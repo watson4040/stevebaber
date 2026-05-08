@@ -25,11 +25,55 @@
       .contact_taital:after { content: ''; width: 80px; height: 3px; background: #e6b422; display: block; margin: 12px auto 0; }
       .info_card { background: #f8f9fa; border-radius: 20px; padding: 25px; margin-bottom: 30px; text-align: center; transition: 0.3s; }
       .info_card i { font-size: 2.5rem; color: #e6b422; margin-bottom: 15px; }
-      .price-card { background: #1a1a1a; color: #fff; border-radius: 20px; padding: 20px; margin-bottom: 30px; }
-      .price-card h4 { color: #e6b422; }
-      .price-card ul { list-style: none; padding: 0; }
-      .price-card li { padding: 8px 0; border-bottom: 1px solid #333; display: flex; justify-content: space-between; }
-      .email_text, #datepicker, #timepicker, .form-control { width: 100%; padding: 12px; border-radius: 30px; border: 1px solid #ddd; margin-bottom: 20px; }
+      
+      /* ===== Consistent styling for all form fields (inputs, selects, date/time) ===== */
+      .email_text, #datepicker, #timepicker, .form-control, select.form-control {
+         width: 100%;
+         padding: 12px 15px;
+         border-radius: 30px;
+         border: 1px solid #ddd;
+         margin-bottom: 20px;
+         font-size: 16px;
+         font-family: 'Poppins', sans-serif;
+         background-color: #fff;
+         height: auto;
+         line-height: 1.5;
+      }
+      
+      /* Make the SELECT box itself match */
+      select.form-control {
+         cursor: pointer;
+         appearance: none;
+         -webkit-appearance: none;
+         -moz-appearance: none;
+         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+         background-repeat: no-repeat;
+         background-position: right 15px center;
+         background-size: 16px;
+      }
+      select.form-control::-ms-expand {
+         display: none;
+      }
+      
+      /* ===== CRITICAL FIX: Style the dropdown OPTIONS to have clear spacing ===== */
+      select.form-control option {
+         padding: 10px 12px;
+         font-size: 16px;
+         font-family: 'Poppins', sans-serif;
+         line-height: 1.5;
+         background-color: #fff;
+         color: #1c1c1c;
+      }
+      
+      /* Ensure datepicker and timepicker inputs also match */
+      .gj-datepicker input, .gj-timepicker input {
+         padding: 12px 15px !important;
+         border-radius: 30px !important;
+         border: 1px solid #ddd !important;
+         font-size: 16px !important;
+         font-family: 'Poppins', sans-serif !important;
+      }
+      
       .book_btn a { background: #e6b422; padding: 12px 40px; border-radius: 40px; color: #1a1a1a; font-weight: bold; display: inline-block; transition: 0.3s; }
       .book_btn a:hover { background: #1a1a1a; color: #e6b422; text-decoration: none; }
       .map-container { border-radius: 20px; overflow: hidden; margin-top: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
@@ -64,7 +108,7 @@
    </div>
 </div>
 
-<!-- ========== CONTACT & PRICE LIST ========== -->
+<!-- ========== CONTACT & BOOKING ========== -->
 <div class="contact_section layout_padding">
    <div class="container">
       <h1 class="contact_taital">Get in Touch</h1>
@@ -74,25 +118,7 @@
          <div class="col-md-4"><div class="info_card"><i class="fas fa-clock"></i><h4>Opening Hours</h4><p>Mon – Sat: 9:00 – 19:00<br>Sun: 10:00 – 16:00</p><small>Walk‑ins always welcome</small></div></div>
       </div>
 
-      <!-- PRICE LIST (separate from text area) -->
-      <div class="row">
-         <div class="col-md-6 mx-auto">
-            <div class="price-card">
-               <h4 class="text-center">💰 Our Services & Prices</h4>
-               <ul>
-                  <li><span>Classic Haircut</span><span>K100</span></li>
-                  <li><span>Fade & Design</span><span>K120</span></li>
-                  <li><span>Beard Trim</span><span>K70</span></li>
-                  <li><span>Kids Cut (under 12)</span><span>K80</span></li>
-                  <li><span>Hot Towel Shave</span><span>K90</span></li>
-                  <li><span>Accessories Consultation</span><span>Free</span></li>
-               </ul>
-               <p class="text-center text-muted small mt-2">Prices include VAT | Walk‑ins welcome</p>
-            </div>
-         </div>
-      </div>
-
-      <!-- Booking Form (no prices inside inputs) -->
+      <!-- Booking Form – dropdown options now have clear padding/spacing -->
       <div class="row mt-4">
          <div class="col-md-12">
             <h3 class="text-center mb-4">📅 Book an Appointment</h3>
@@ -107,11 +133,11 @@
             <div class="row">
                <div class="col-md-6">
                   <select class="form-control" id="serviceSelect">
-                     <option>Classic Haircut</option>
-                     <option>Fade & Design</option>
-                     <option>Beard Trim</option>
-                     <option>Kids Cut</option>
-                     <option>Hot Towel Shave</option>
+                     <option>Classic Haircut (K100)</option>
+                     <option>Fade & Design (K120)</option>
+                     <option>Beard Trim (K70)</option>
+                     <option>Kids Cut (K80)</option>
+                     <option>Hot Towel Shave (K90)</option>
                      <option>Accessories Consultation</option>
                   </select>
                </div>
