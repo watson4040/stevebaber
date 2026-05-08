@@ -26,8 +26,8 @@
       .info_card { background: #f8f9fa; border-radius: 20px; padding: 25px; margin-bottom: 30px; text-align: center; transition: 0.3s; }
       .info_card i { font-size: 2.5rem; color: #e6b422; margin-bottom: 15px; }
       
-      /* ===== Consistent styling for all form fields (inputs, selects, date/time) ===== */
-      .email_text, #datepicker, #timepicker, .form-control, select.form-control {
+      /* Consistent styling for all normal inputs */
+      .email_text, #datepicker, #timepicker, .form-control {
          width: 100%;
          padding: 12px 15px;
          border-radius: 30px;
@@ -40,32 +40,70 @@
          line-height: 1.5;
       }
       
-      /* Make the SELECT box itself match */
-      select.form-control {
-         cursor: pointer;
-         appearance: none;
-         -webkit-appearance: none;
-         -moz-appearance: none;
-         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
-         background-repeat: no-repeat;
-         background-position: right 15px center;
-         background-size: 16px;
+      /* Custom dropdown container – looks exactly like an input */
+      .custom-select-wrapper {
+         position: relative;
+         width: 100%;
+         margin-bottom: 20px;
       }
-      select.form-control::-ms-expand {
-         display: none;
-      }
-      
-      /* ===== CRITICAL FIX: Style the dropdown OPTIONS to have clear spacing ===== */
-      select.form-control option {
-         padding: 10px 12px;
+      .custom-select-trigger {
+         width: 100%;
+         padding: 12px 15px;
+         border-radius: 30px;
+         border: 1px solid #ddd;
+         background: #fff;
          font-size: 16px;
          font-family: 'Poppins', sans-serif;
+         cursor: pointer;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
          line-height: 1.5;
-         background-color: #fff;
          color: #1c1c1c;
       }
+      .custom-select-trigger span:first-child {
+         color: #1c1c1c;
+      }
+      .custom-select-trigger .arrow {
+         font-size: 12px;
+         color: #666;
+         transition: transform 0.2s;
+      }
+      .custom-select-options {
+         position: absolute;
+         top: calc(100% + 5px);
+         left: 0;
+         right: 0;
+         background: #fff;
+         border-radius: 20px;
+         border: 1px solid #ddd;
+         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+         z-index: 100;
+         max-height: 250px;
+         overflow-y: auto;
+         display: none;
+      }
+      .custom-select-options.show {
+         display: block;
+      }
+      .custom-option {
+         padding: 12px 15px;
+         font-size: 16px;
+         font-family: 'Poppins', sans-serif;
+         cursor: pointer;
+         transition: background 0.2s;
+         line-height: 1.5;
+      }
+      .custom-option:hover {
+         background-color: #f5f5f5;
+      }
+      .custom-option.selected {
+         background-color: #e6b42220;
+         color: #1a1a1a;
+         font-weight: 500;
+      }
       
-      /* Ensure datepicker and timepicker inputs also match */
+      /* Ensure datepicker and timepicker match */
       .gj-datepicker input, .gj-timepicker input {
          padding: 12px 15px !important;
          border-radius: 30px !important;
@@ -118,7 +156,7 @@
          <div class="col-md-4"><div class="info_card"><i class="fas fa-clock"></i><h4>Opening Hours</h4><p>Mon – Sat: 9:00 – 19:00<br>Sun: 10:00 – 16:00</p><small>Walk‑ins always welcome</small></div></div>
       </div>
 
-      <!-- Booking Form – dropdown options now have clear padding/spacing -->
+      <!-- Booking Form with CUSTOM dropdown (same look as inputs) -->
       <div class="row mt-4">
          <div class="col-md-12">
             <h3 class="text-center mb-4">📅 Book an Appointment</h3>
@@ -132,14 +170,22 @@
             </div>
             <div class="row">
                <div class="col-md-6">
-                  <select class="form-control" id="serviceSelect">
-                     <option>Classic Haircut (K100)</option>
-                     <option>Fade & Design (K120)</option>
-                     <option>Beard Trim (K70)</option>
-                     <option>Kids Cut (K80)</option>
-                     <option>Hot Towel Shave (K90)</option>
-                     <option>Accessories Consultation</option>
-                  </select>
+                  <!-- Custom dropdown -->
+                  <div class="custom-select-wrapper" id="serviceDropdown">
+                     <div class="custom-select-trigger">
+                        <span id="selectedServiceText">Classic Haircut (K100)</span>
+                        <span class="arrow">▼</span>
+                     </div>
+                     <div class="custom-select-options">
+                        <div class="custom-option" data-value="Classic Haircut (K100)">Classic Haircut (K100)</div>
+                        <div class="custom-option" data-value="Fade & Design (K120)">Fade & Design (K120)</div>
+                        <div class="custom-option" data-value="Beard Trim (K70)">Beard Trim (K70)</div>
+                        <div class="custom-option" data-value="Kids Cut (K80)">Kids Cut (K80)</div>
+                        <div class="custom-option" data-value="Hot Towel Shave (K90)">Hot Towel Shave (K90)</div>
+                        <div class="custom-option" data-value="Accessories Consultation">Accessories Consultation</div>
+                     </div>
+                  </div>
+                  <input type="hidden" id="serviceSelect" value="Classic Haircut (K100)">
                </div>
                <div class="col-md-6">
                   <input type="text" class="email_text" id="specialRequest" placeholder="Special requests (e.g., fade style)">
@@ -177,8 +223,44 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js"></script>
 <script>
+   // Initialize date and time pickers
    $('#datepicker').datepicker({ uiLibrary: 'bootstrap', format: 'yyyy-mm-dd' });
    $('#timepicker').timepicker({ uiLibrary: 'bootstrap', mode: '24hr' });
+   
+   // Custom dropdown logic
+   const dropdownWrapper = document.getElementById('serviceDropdown');
+   const trigger = dropdownWrapper.querySelector('.custom-select-trigger');
+   const optionsContainer = dropdownWrapper.querySelector('.custom-select-options');
+   const selectedSpan = document.getElementById('selectedServiceText');
+   const hiddenInput = document.getElementById('serviceSelect');
+   
+   trigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      optionsContainer.classList.toggle('show');
+   });
+   
+   // Close dropdown when clicking outside
+   document.addEventListener('click', function(e) {
+      if (!dropdownWrapper.contains(e.target)) {
+         optionsContainer.classList.remove('show');
+      }
+   });
+   
+   // Handle option selection
+   const options = dropdownWrapper.querySelectorAll('.custom-option');
+   options.forEach(opt => {
+      opt.addEventListener('click', function() {
+         const value = this.getAttribute('data-value');
+         selectedSpan.innerText = value;
+         hiddenInput.value = value;
+         // Update selected class
+         options.forEach(o => o.classList.remove('selected'));
+         this.classList.add('selected');
+         optionsContainer.classList.remove('show');
+      });
+   });
+   
+   // WhatsApp booking (uses the hidden input value)
    document.getElementById('whatsappBookBtn').addEventListener('click', function(e){
       e.preventDefault();
       let name = document.getElementById('bookingName').value;
