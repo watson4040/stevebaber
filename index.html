@@ -1,477 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <meta name="description" content="S & T Lounge Barbershop and Accessories – Lusaka's premier barbershop for grooming and accessories. Book appointments, view services, and contact us via WhatsApp.">
-    <title>S & T Barber Lounge & Accessories | Premium Grooming</title>
-    <!-- Bootstrap 5 + Icons + Google Fonts -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Swiper CSS for carousel -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #eef2f5;  /* soft grey background – USA style */
-            color: #1a2a3a;
-            scroll-padding-top: 80px;
-        }
-
-        /* ========== NAVBAR (HOVER EFFECTS + DARK MODERN) ========== */
-        .navbar {
-            background: #0a1a2a;
-            padding: 0.8rem 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .navbar-brand {
-            font-weight: 800;
-            font-size: 1.6rem;
-            color: #e6b422 !important;
-            letter-spacing: -0.5px;
-        }
-        .navbar-brand span {
-            color: #ffffff;
-            font-weight: 600;
-        }
-        .nav-link {
-            font-weight: 600;
-            color: #f0f0f0 !important;
-            margin: 0 0.6rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .nav-link:hover {
-            color: #e6b422 !important;
-            transform: translateY(-2px);
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: #e6b422;
-            transition: 0.3s;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        /* ========== CAROUSEL SLIDES (CLEAR PLACEHOLDERS) ========== */
-        .swiper-slide {
-            height: 85vh;
-            background-size: cover;
-            background-position: center 30%;
-            position: relative;
-        }
-        .swiper-slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.55);
-            z-index: 1;
-        }
-        .slide-content {
-            position: absolute;
-            bottom: 20%;
-            left: 10%;
-            z-index: 2;
-            color: white;
-            max-width: 600px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-        }
-        .slide-content h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-        .slide-content p {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-        .btn-booking {
-            background: #e6b422;
-            color: #1a1a1a;
-            border-radius: 40px;
-            padding: 12px 32px;
-            font-weight: 700;
-            transition: 0.3s;
-            border: none;
-        }
-        .btn-booking:hover {
-            background: #d4a017;
-            transform: scale(1.02);
-            color: #000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-        .btn-outline-light {
-            border-width: 2px;
-        }
-        .btn-outline-light:hover {
-            background: #e6b422;
-            border-color: #e6b422;
-            color: #000;
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: #0a1a2a;
-            margin-bottom: 2rem;
-            text-align: center;
-            position: relative;
-        }
-        .section-title:after {
-            content: '';
-            display: block;
-            width: 70px;
-            height: 3px;
-            background: #e6b422;
-            margin: 12px auto 0;
-            border-radius: 3px;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 24px;
-            padding: 1.8rem;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            transition: 0.3s;
-            height: 100%;
-            border: 1px solid #e9ecef;
-        }
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: #e6b422;
-            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
-        }
-        .service-icon {
-            font-size: 2.5rem;
-            color: #e6b422;
-            margin-bottom: 1rem;
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-            z-index: 1000;
-            transition: 0.3s;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background: #128C7E;
-        }
-
-        .social-icon {
-            transition: 0.2s;
-            display: inline-block;
-        }
-        .social-icon:hover {
-            transform: translateY(-4px);
-            color: #e6b422 !important;
-        }
-
-        footer {
-            background: #0a1a2a;
-            color: #bbbbbb;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            .swiper-slide { height: 60vh; }
-            .slide-content { bottom: 10%; left: 5%; }
-            .slide-content h1 { font-size: 2rem; }
-            .section-title { font-size: 1.8rem; }
-        }
-
-        .contact-card {
-            background: white;
-            border-radius: 20px;
-            padding: 1.5rem;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
-            height: 100%;
-        }
-    </style>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <title>S & T Barber Lounge | Lusaka West</title>
+   <meta name="description" content="S & T Barber Lounge & Accessories – Premium barbershop in Chilanga, Lusaka West. Fades, beard trims, hot towel shaves & grooming accessories. Book via WhatsApp.">
+   <meta name="author" content="S&T Barbershop">
+   <!-- Bootstrap 4 + Fonts + Icons -->
+   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+   <!-- Owl Carousel (optional for gallery) -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+   <!-- Datepicker + Timepicker (gijgo) -->
+   <link rel="stylesheet" href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css">
+   <style>
+      /* ===== GLOBAL STYLES ===== */
+      body {
+         font-family: 'Poppins', sans-serif;
+         background: #fff;
+         color: #1c1c1c;
+      }
+      /* ===== RESPONSIVE NAVBAR (FIXED) ===== */
+      .header_section {
+         background: #1a1a1a;
+         padding-bottom: 30px;
+      }
+      .navbar {
+         background: #1a1a1a !important;
+         padding: 15px 0;
+      }
+      .navbar-brand {
+         font-weight: 700;
+         font-size: 1.5rem;
+      }
+      .navbar-nav .nav-link {
+         color: #fff !important;
+         font-weight: 500;
+         transition: all 0.3s ease;
+         margin: 0 5px;
+         padding: 8px 15px !important;
+         border-radius: 30px;
+      }
+      .navbar-nav .nav-link:hover {
+         background-color: #e6b422;
+         color: #1a1a1a !important;
+         transform: translateY(-2px);
+      }
+      .navbar-nav .nav-link.active {
+         background-color: #e6b422;
+         color: #1a1a1a !important;
+      }
+      .navbar-toggler {
+         border: 2px solid #e6b422;
+      }
+      .navbar-toggler-icon {
+         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(230, 180, 34, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+      .login_text a, .search_icon a {
+         color: #e6b422;
+         font-weight: 600;
+         margin-right: 20px;
+      }
+      .login_text a:hover, .search_icon a:hover {
+         color: #fff;
+      }
+      /* Banner */
+      .banner_section {
+         background: url('https://images.pexels.com/photos/3993447/pexels-photo-3993447.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat center center;
+         background-size: cover;
+         padding: 120px 0;
+         position: relative;
+      }
+      .banner_section::before {
+         content: "";
+         background: rgba(0,0,0,0.65);
+         position: absolute;
+         top:0; left:0; width:100%; height:100%;
+      }
+      .banner_taital {
+         font-size: 56px;
+         font-weight: 800;
+         color: #fff;
+         text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+         position: relative;
+         z-index: 2;
+      }
+      .read_bt a {
+         display: inline-block;
+         background: #e6b422;
+         color: #1a1a1a;
+         padding: 10px 30px;
+         border-radius: 40px;
+         font-weight: bold;
+         margin-top: 20px;
+         transition: 0.3s;
+         position: relative;
+         z-index: 2;
+      }
+      .read_bt a:hover { background: #fff; color: #000; text-decoration: none; }
+      /* Videos */
+      .videos_section {
+         background: #f8f9fa;
+         padding: 50px 0;
+         text-align: center;
+      }
+      .play_btn a img { width: 80px; transition: 0.3s; }
+      .play_btn a:hover img { transform: scale(1.1); }
+      /* Gallery */
+      .gallery_section { background: #fff; padding: 60px 0; }
+      .gallery_taital, .blog_taital, .about_taital, .contact_taital, .client_taital {
+         font-size: 42px;
+         font-weight: 700;
+         text-align: center;
+         margin-bottom: 40px;
+         color: #1a1a1a;
+         position: relative;
+      }
+      .gallery_taital:after, .blog_taital:after, .about_taital:after, .contact_taital:after {
+         content: '';
+         width: 80px;
+         height: 3px;
+         background: #e6b422;
+         display: block;
+         margin: 12px auto 0;
+      }
+      .image_main {
+         position: relative;
+         overflow: hidden;
+         border-radius: 15px;
+         margin-bottom: 25px;
+      }
+      .image_main img { border-radius: 15px; transition: 0.3s; width: 100%; height: 250px; object-fit: cover; }
+      .image_main:hover img { transform: scale(1.05); }
+      .text_main {
+         position: absolute;
+         bottom: 20px;
+         left: 0;
+         right: 0;
+         background: rgba(0,0,0,0.7);
+         color: #e6b422;
+         text-align: center;
+         padding: 8px;
+      }
+      /* Blog */
+      .blog_box {
+         background: #fef9e6;
+         border-radius: 20px;
+         overflow: hidden;
+         display: flex;
+         flex-wrap: wrap;
+      }
+      .blog_box_left, .blog_box_right { padding: 20px; }
+      .blog_box_left { flex: 1; min-width: 250px; }
+      .blog_box_right { flex: 2; background: #fff; }
+      .good_text { color: #e6b422; font-weight: 700; }
+      /* About */
+      .about_section { background: #f4f4f4; padding: 60px 0; }
+      .about_img { width: 100%; border-radius: 20px; }
+      /* Contact */
+      .contact_section { background: #fff; padding: 60px 0; }
+      .email_text, #datepicker, #timepicker, .form-control {
+         width: 100%;
+         padding: 12px;
+         border-radius: 30px;
+         border: 1px solid #ddd;
+         margin-bottom: 20px;
+      }
+      .book_btn a {
+         background: #e6b422;
+         padding: 12px 40px;
+         border-radius: 40px;
+         color: #1a1a1a;
+         font-weight: bold;
+         display: inline-block;
+      }
+      /* Testimonials */
+      .client_section { background: #1a1a1a; color: #fff; padding: 60px 0; }
+      .client_section .carousel-item { padding: 40px; text-align: center; }
+      .den_text { color: #e6b422; }
+      /* Footer */
+      .footer_section { background: #0a0a0a; color: #ccc; padding: 40px 0; }
+      .social_icon ul { list-style: none; display: flex; justify-content: center; gap: 20px; padding: 0; }
+      .social_icon ul li a img { width: 35px; filter: brightness(0) invert(1); transition: 0.3s; }
+      .social_icon ul li a:hover img { filter: brightness(0) invert(0.7); }
+      .map-container {
+         border-radius: 20px;
+         overflow: hidden;
+         margin-top: 20px;
+         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      }
+      /* WhatsApp float */
+      .whatsapp-float {
+         position: fixed;
+         bottom: 20px;
+         right: 20px;
+         background: #25D366;
+         width: 55px;
+         height: 55px;
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-size: 1.8rem;
+         color: white;
+         z-index: 1000;
+         box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+         transition: 0.3s;
+      }
+      .whatsapp-float:hover { transform: scale(1.1); background: #128C7E; }
+      @media (max-width: 768px) {
+         .banner_taital { font-size: 32px; }
+         .gallery_taital, .blog_taital { font-size: 32px; }
+         .navbar-nav .nav-link { text-align: center; margin: 5px 0; }
+         .form-inline { justify-content: center; margin-top: 10px; }
+      }
+   </style>
 </head>
 <body>
 
-<!-- Navigation with hover effect -->
-<nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">S & T <span>Babershop</span></a>
-        <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+<!-- ========== HEADER WITH FIXED RESPONSIVE NAVBAR ========== -->
+<div class="header_section">
+   <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+         <a class="navbar-brand" href="index.html">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/scissors.png" style="width:40px;"> 
+            <span style="color:#e6b422;">S&T</span> Barber Lounge
+         </a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="#appointment">Appointment</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+         </button>
+         <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ml-auto">
+               <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+               <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+               <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+               <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+               <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
             </ul>
-        </div>
-    </div>
-</nav>
+            <form class="form-inline ml-3">
+               <p class="login_text mb-0 mr-3"><a href="https://web.facebook.com/profile.php?id=61589087050579" target="_blank">Facebook</a></p>
+               <div class="search_icon"><a href="#"><i class="fas fa-search text-white"></i></a></div>
+            </form>
+         </div>
+      </nav>
+   </div>
 
-<!-- Hero Carousel – Replace images with your own (see comments) -->
-<section id="home" class="hero-carousel">
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-            <!-- SLIDE 1: Replace with your own image URL (e.g., 'images/barber1.jpg') -->
-            <div class="swiper-slide" style="background-image: url('images/shop.png?auto=compress&cs=tinysrgb&w=1600'); width: 700px; height: 700px;">
-                <div class="slide-content">
-                    <h1>Lusaka's Finest Cut</h1>
-                    <p>Expert barbers, premium service, and a lounge experience with accessories.</p>
-                    <a href="#appointment" class="btn btn-booking">Book Your Spot</a>
-                </div>
+   <!-- Banner Carousel -->
+   <div class="banner_section layout_padding" id="home">
+      <div id="my_slider" class="carousel slide" data-ride="carousel">
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <div class="container">
+                  <h1 class="banner_taital">Lusaka West's Finest Cut</h1>
+                  <div class="read_bt"><a href="contact.html#appointment">Book Now →</a></div>
+               </div>
             </div>
-            <!-- SLIDE 2: Replace with your own image -->
-            <div class="swiper-slide" style="background-image: url('images/baber.png?auto=compress&cs=tinysrgb&w=1600'); width: 700px; height: 700px;">
-                <div class="slide-content">
-                    <h1>Fades, Beards & Accessories</h1>
-                    <p>Hot towel shaves, precision fades, and premium grooming products.</p>
-                    <a href="#services" class="btn btn-outline-light">Explore Services</a>
-                </div>
+            <div class="carousel-item">
+               <div class="container">
+                  <h1 class="banner_taital">Fades, Beards & Accessories</h1>
+                  <div class="read_bt"><a href="#services">Explore Services</a></div>
+               </div>
             </div>
-            <!-- SLIDE 3: Replace with your own image -->
-            <div class="swiper-slide" style="background-image: url('images/babers.png?auto=compress&cs=tinysrgb&w=1600');">
-                <div class="slide-content">
-                    <h1>No More Long Waits</h1>
-                    <p>Book online or WhatsApp – we’ll be ready for you.</p>
-                    <a href="https://wa.me/0573420800" class="btn btn-booking"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
-                </div>
+            <div class="carousel-item">
+               <div class="container">
+                  <h1 class="banner_taital">WhatsApp Booking: 0573420800</h1>
+                  <div class="read_bt"><a href="https://wa.me/0573420800">Message Us</a></div>
+               </div>
             </div>
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
-</section>
+         </div>
+         <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+         <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+      </div>
+   </div>
+</div>
 
-<!-- About Section -->
-<section id="about" class="py-5">
-    <div class="container">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-6">
-                <h2 class="section-title text-start" style="text-align:left;">S & T Barber Lounge & Accessories</h2>
-                <p class="lead">Lusaka's premier lounge barbershop – combining expert grooming with a relaxing atmosphere and quality accessories.</p>
-                <p>We offer sharp fades, beard sculpting, hot towel shaves, and a curated selection of grooming accessories. Whether you need a quick trim or a full makeover, our skilled barbers ensure you leave feeling confident.</p>
-                <p><i class="fas fa-map-marker-alt text-warning"></i> <strong>Location:</strong> Lusaka, Zambia (near Arcades)</p>
-                <p><i class="fas fa-clock"></i> <strong>Hours:</strong> Mon–Sat 9am–7pm | Sun 10am–5pm</p>
-                <p><i class="fas fa-phone-alt"></i> <strong>Call/WhatsApp:</strong> <a href="tel:0573420800">0573420800</a> | <a href="https://wa.me/0573420800">WhatsApp</a></p>
-                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:stevenmvula243@gmail.com">stevenmvula243@gmail.com</a></p>
-                <a href="#appointment" class="btn btn-booking mt-2">Book Online</a>
-            </div>
-            <div class="col-lg-6">
-                <img src="https://images.pexels.com/photos/3823716/pexels-photo-3823716.jpeg?auto=compress&cs=tinysrgb&w=800" class="img-fluid rounded-4 shadow" alt="Barbershop interior">
-            </div>
-        </div>
-    </div>
-</section>
+<!-- Video promo section -->
+<div class="videos_section">
+   <div class="container">
+      <div class="play_btn_main">
+         <div class="play_btn"><a href="https://www.instagram.com/reel/placeholder" target="_blank"><img src="https://img.icons8.com/ios-filled/100/000000/play--v1.png" alt="play"></a></div>
+         <p class="mt-3">Watch our grooming techniques on Instagram</p>
+      </div>
+   </div>
+</div>
 
-<!-- Services Section -->
-<section id="services" class="py-5 bg-white">
-    <div class="container">
-        <h2 class="section-title">Our Services & Accessories</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="service-card">
-                    <i class="fas fa-cut service-icon"></i>
-                    <h5>Classic Haircut</h5>
-                    <p class="text-muted">K100</p>
-                    <p>Precision scissors & clipper cut, finished with a hot towel.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="service-card">
-                    <i class="fas fa-tachometer-alt service-icon"></i>
-                    <h5>Fade & Design</h5>
-                    <p class="text-muted">K120</p>
-                    <p>Skin fade, taper, or custom line design.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="service-card">
-                    <i class="fas fa-beard service-icon"></i>
-                    <h5>Beard Trim & Shape</h5>
-                    <p class="text-muted">K70</p>
-                    <p>Hot towel, oil, and shaping.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="service-card">
-                    <i class="fas fa-child service-icon"></i>
-                    <h5>Kids Cut (under 12)</h5>
-                    <p class="text-muted">K80</p>
-                    <p>Patient barbers who make it fun.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="service-card">
-                    <i class="fas fa-hot-tub service-icon"></i>
-                    <h5>Hot Towel Shave</h5>
-                    <p class="text-muted">K90</p>
-                    <p>Traditional straight‑razor shave + steam towel.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="service-card">
-                    <i class="fas fa-store service-icon"></i>
-                    <h5>Grooming Accessories</h5>
-                    <p class="text-muted">Ask in-shop</p>
-                    <p>Beard oils, razors, clippers, and premium products.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- Gallery section (truncated for brevity – same as original but keep content) -->
+<div class="gallery_section layout_padding" id="gallery">
+   <div class="container">
+      <h1 class="gallery_taital">Style Gallery</h1>
+      <div class="row">
+         <div class="col-md-4"><div class="image_main"><img src="https://images.pexels.com/photos/3997822/pexels-photo-3997822.jpeg?auto=compress&cs=tinysrgb&w=600"><div class="text_main">Skin Fade</div></div></div>
+         <div class="col-md-4"><div class="image_main"><img src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=600"><div class="text_main">Beard Sculpt</div></div></div>
+         <div class="col-md-4"><div class="image_main"><img src="https://images.pexels.com/photos/3993463/pexels-photo-3993463.jpeg?auto=compress&cs=tinysrgb&w=600"><div class="text_main">Hot Towel Shave</div></div></div>
+      </div>
+      <div class="row mt-3">
+         <div class="col-md-4"><div class="image_main"><img src="https://images.pexels.com/photos/3993460/pexels-photo-3993460.jpeg?auto=compress&cs=tinysrgb&w=600"><div class="text_main">Kids Cut</div></div></div>
+         <div class="col-md-4"><div class="image_main"><img src="https://images.pexels.com/photos/3812900/pexels-photo-3812900.jpeg?auto=compress&cs=tinysrgb&w=600"><div class="text_main">Accessories</div></div></div>
+         <div class="col-md-4"><div class="image_main"><img src="https://images.pexels.com/photos/3823716/pexels-photo-3823716.jpeg?auto=compress&cs=tinysrgb&w=600"><div class="text_main">Lounge Vibe</div></div></div>
+      </div>
+      <div class="text-center mt-4"><a href="#" class="btn btn-outline-warning">See More on Instagram</a></div>
+   </div>
+</div>
 
-<!-- Appointment Section (WhatsApp Booking with provided number) -->
-<section id="appointment" class="py-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="bg-white p-5 rounded-4 shadow text-center">
-                    <i class="fas fa-calendar-check fa-3x" style="color:#e6b422;"></i>
-                    <h2 class="mt-3">Skip the Wait. Book Online.</h2>
-                    <p class="lead">Select your service, preferred time, and we’ll confirm via WhatsApp. No more long queues.</p>
-                    <form id="appointmentForm">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <input type="text" id="name" class="form-control form-control-lg" placeholder="Your Name" required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="tel" id="phone" class="form-control form-control-lg" placeholder="WhatsApp Number" required>
-                            </div>
-                            <div class="col-md-6">
-                                <select id="service" class="form-select form-select-lg">
-                                    <option>Classic Haircut (K100)</option>
-                                    <option>Fade & Design (K120)</option>
-                                    <option>Beard Trim (K70)</option>
-                                    <option>Kids Cut (K80)</option>
-                                    <option>Hot Towel Shave (K90)</option>
-                                    <option>Accessories Consultation</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="datetime-local" id="datetime" class="form-control form-control-lg" required>
-                            </div>
-                            <div class="col-12">
-                                <textarea id="notes" rows="2" class="form-control" placeholder="Any special requests?"></textarea>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-booking btn-lg w-100"><i class="fab fa-whatsapp"></i> Request Booking via WhatsApp</button>
-                            </div>
-                        </div>
-                    </form>
-                    <p class="text-muted mt-3 small">We’ll reply within 30 minutes during business hours.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- Blog teaser -->
+<div class="blog_section layout_padding" id="blog">
+   <div class="container">
+      <h1 class="blog_taital">Grooming Journal</h1>
+      <div class="blog_box">
+         <div class="blog_box_left"><img src="https://images.pexels.com/photos/3993447/pexels-photo-3993447.jpeg?auto=compress&cs=tinysrgb&w=400" class="img-fluid rounded"></div>
+         <div class="blog_box_right">
+            <h2 class="good_text">Why a Hot Towel Shave Matters</h2>
+            <p class="post_text">Post by: S&T Barbers <span class="date_text">May 2025</span></p>
+            <p>Experience the luxury of a traditional hot towel shave – it opens pores, softens hair, and reduces irritation. At S&T Barber Lounge in Chilanga, we use premium razors and organic oils for a perfect finish.</p>
+            <div class="read_bt_1"><a href="blog.html" class="btn btn-sm btn-warning">Read More</a></div>
+         </div>
+      </div>
+   </div>
+</div>
 
-<!-- Contact & Google Maps + Social Media Icons -->
-<section id="contact" class="py-5 bg-light">
-    <div class="container">
-        <h2 class="section-title">Get in Touch</h2>
-        <div class="row g-4">
-            <div class="col-md-6">
-                <div class="contact-card">
-                    <h4><i class="fab fa-whatsapp text-success"></i> WhatsApp / Call</h4>
-                    <p><strong>0573420800</strong> <br> <small>Click to call or message</small></p>
-                    <a href="https://wa.me/0573420800" class="btn btn-booking mb-3"><i class="fab fa-whatsapp"></i> Message Us on WhatsApp</a>
-                    <hr>
-                    <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:stevenmvula243@gmail.com">stevenmvula243@gmail.com</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Lusaka, Zambia (near Arcades Shopping Mall)</p>
-                    <p><i class="fas fa-clock"></i> <strong>Hours:</strong> Mon–Sat 9am–7pm, Sun 10am–5pm</p>
-                    
-                    <!-- Social Media Icons with hover effect (LinkedIn, FB, IG, TikTok, WhatsApp) -->
-                    <div class="mt-4">
-                        <a href="#" class="social-icon me-3 text-dark" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
-                        <a href="#" class="social-icon me-3 text-dark" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
-                        <a href="#" class="social-icon me-3 text-dark" target="_blank"><i class="fab fa-tiktok fa-2x"></i></a>
-                        <a href="#" class="social-icon me-3 text-dark" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
-                        <a href="https://wa.me/0573420800" class="social-icon text-dark" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
-                    </div>
-                    <p class="mt-3 small text-muted">Connect with us on social media for the latest offers.</p>
-                </div>
+<!-- About teaser -->
+<div class="about_section layout_padding" id="about">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-6"><img src="https://images.pexels.com/photos/3993467/pexels-photo-3993467.jpeg?auto=compress&cs=tinysrgb&w=800" class="about_img"></div>
+         <div class="col-md-6">
+            <div class="about_taital_main">
+               <h1 class="about_taital">S & T Barber Lounge & Accessories</h1>
+               <p>Lusaka West’s premium barbershop – located exactly at <strong>J5FR+84F Chilanga, Lusaka West (postal 10101)</strong>. We specialize in modern fades, beard sculpting, hot towel shaves, and top‑quality grooming accessories.</p>
+               <div class="readmore_bt"><a href="about.html" class="btn btn-warning">Learn More</a></div>
             </div>
-            <div class="col-md-6">
-                <div class="contact-card">
-                    <h4><i class="fas fa-map-marked-alt"></i> Find Us (Google Maps)</h4>
-                    <div class="ratio ratio-16x9 mt-3">
-                        <!-- Google Maps placeholder – replace with your actual embed link -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.508213473845!2d28.322817!3d-15.387526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f2f5b0c4a2b3%3A0x3b4c5d6e7f8a9b0c!2sLusaka%2C%20Zambia!5e0!3m2!1sen!2sus!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+         </div>
+      </div>
+   </div>
+</div>
 
-<footer>
-    <div class="container text-center">
-        <p>&copy; 2025 S & T Barber Lounge & Accessories. All rights reserved. | <a href="mailto:stevenmvula243@gmail.com" class="text-white-50">stevenmvula243@gmail.com</a></p>
-        <p><i class="fas fa-heart text-danger"></i> Lusaka's premium lounge experience – Call/WhatsApp: 0573420800</p>
-    </div>
-</footer>
+<!-- Contact & booking form (simplified but working) -->
+<div class="contact_section layout_padding" id="contact">
+   <div class="container">
+      <h1 class="contact_taital">Book Your Spot</h1>
+      <div class="row">
+         <div class="col-md-6"><input type="text" class="email_text" id="bookingName" placeholder="Your Name"></div>
+         <div class="col-md-6"><input type="text" class="email_text" id="bookingPhone" placeholder="WhatsApp Number"></div>
+      </div>
+      <div class="row">
+         <div class="col-md-6"><input id="datepicker" placeholder="Select Date"></div>
+         <div class="col-md-6"><input id="timepicker" placeholder="Select Time"></div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+            <select class="form-control" id="serviceSelect">
+               <option>Classic Haircut (K100)</option><option>Fade & Design (K120)</option><option>Beard Trim (K70)</option>
+               <option>Kids Cut (K80)</option><option>Hot Towel Shave (K90)</option><option>Accessories Consultation</option>
+            </select>
+         </div>
+         <div class="col-md-6"><input type="text" class="email_text" id="specialRequest" placeholder="Special requests"></div>
+      </div>
+      <div class="text-center mt-3">
+         <div class="book_btn"><a href="#" id="whatsappBookBtn">Book Now via WhatsApp</a></div>
+      </div>
+   </div>
+</div>
 
-<!-- Floating WhatsApp Button (uses provided number) -->
+<!-- Map -->
+<div class="container mb-5">
+   <h3 class="text-center">📍 Our Location – Chilanga, Lusaka West (J5FR+84F)</h3>
+   <div class="map-container">
+      <iframe src="https://maps.google.com/maps?q=J5FR%2B84F%20Chilanga%2C%20Lusaka%20West%2C%20Zambia&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="350" style="border:0;" allowfullscreen></iframe>
+   </div>
+</div>
+
+<!-- Testimonials -->
+<div class="client_section layout_padding">
+   <div class="container">
+      <h1 class="client_taital" style="color:#e6b422;">What Clients Say</h1>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+         <ol class="carousel-indicators"><li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li><li data-target="#carouselExampleIndicators" data-slide-to="1"></li></ol>
+         <div class="carousel-inner">
+            <div class="carousel-item active"><h2 class="den_text">Michael B.</h2><p>"Best fade in Lusaka West! The hot towel shave was amazing. Clean shop and friendly barbers."</p></div>
+            <div class="carousel-item"><h2 class="den_text">Chanda K.</h2><p>"I love their accessories collection. Booked via WhatsApp and got a quick response. Top notch."</p></div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<!-- Footer -->
+<div class="footer_section layout_padding">
+   <div class="container">
+      <div class="box_main"><input type="email" class="email_bt" placeholder="Subscribe for offers"><button class="subscribe_bt"><a href="#">Subscribe</a></button></div>
+      <div class="location_main">
+         <div class="call_text"><a href="tel:0573420800"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/phone.png"> <span>Call 0573420800</span></a></div>
+         <div class="call_text"><a href="mailto:stevenmvula243@gmail.com"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/email.png"> <span>stevenmvula243@gmail.com</span></a></div>
+         <div class="call_text"><a href="https://maps.google.com/?q=J5FR+84F+Chilanga"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/map-marker.png"> <span>J5FR+84F Chilanga</span></a></div>
+      </div>
+      <div class="social_icon">
+         <ul>
+            <li><a href="https://web.facebook.com/profile.php?id=61589087050579" target="_blank"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook--v1.png"></a></li>
+            <li><a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new--v1.png"></a></li>
+            <li><a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok--v1.png"></a></li>
+            <li><a href="https://wa.me/0573420800"><img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png"></a></li>
+         </ul>
+      </div>
+   </div>
+</div>
+<div class="copyright_section"><div class="container"><p class="copyright_text">© 2025 S & T Barber Lounge & Accessories | Designed for Lusaka West | <a href="https://web.facebook.com/profile.php?id=61589087050579" target="_blank">Facebook Page</a></p></div></div>
+
+<!-- WhatsApp float -->
 <a href="https://wa.me/0573420800" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js"></script>
 <script>
-    // Swiper carousel initialization
-    var swiper = new Swiper(".mySwiper", {
-        loop: true,
-        autoplay: { delay: 5000, disableOnInteraction: false },
-        pagination: { el: ".swiper-pagination", clickable: true },
-        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-        effect: "slide",
-        speed: 800
-    });
-
-    // Appointment form -> uses the provided WhatsApp number (0573420800)
-    document.getElementById('appointmentForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('name').value;
-        const phone = document.getElementById('phone').value;
-        const service = document.getElementById('service').value;
-        const datetime = document.getElementById('datetime').value;
-        const notes = document.getElementById('notes').value;
-        const message = `Hello S & T Lounge, I would like to book an appointment:%0A%0A*Name:* ${name}%0A*Service:* ${service}%0A*Date/Time:* ${datetime}%0A*Phone:* ${phone}%0A*Notes:* ${notes}%0A%0APlease confirm my booking.`;
-        const whatsappUrl = `https://wa.me/0573420800?text=${message}`;
-        window.open(whatsappUrl, '_blank');
-    });
+   $('#datepicker').datepicker({ uiLibrary: 'bootstrap', format: 'yyyy-mm-dd' });
+   $('#timepicker').timepicker({ uiLibrary: 'bootstrap', mode: '24hr' });
+   document.getElementById('whatsappBookBtn').addEventListener('click', function(e){
+      e.preventDefault();
+      let name = document.getElementById('bookingName').value;
+      let phone = document.getElementById('bookingPhone').value;
+      let date = document.getElementById('datepicker').value;
+      let time = document.getElementById('timepicker').value;
+      let service = document.getElementById('serviceSelect').value;
+      let special = document.getElementById('specialRequest').value;
+      let msg = `Hello S&T Barber Lounge (Chilanga). I'd like to book:%0A*Name:* ${name}%0A*WhatsApp:* ${phone}%0A*Date:* ${date}%0A*Time:* ${time}%0A*Service:* ${service}%0A*Special:* ${special}%0ALocation: J5FR+84F Chilanga.`;
+      window.open(`https://wa.me/0573420800?text=${msg}`, '_blank');
+   });
 </script>
 </body>
 </html>

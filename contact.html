@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <title>Contact & Booking | S & T Barber Lounge – Lusaka West</title>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css">
+   <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: 'Poppins', sans-serif; background: #fff; color: #1c1c1c; }
+      .header_section { background: #1a1a1a; padding-bottom: 30px; }
+      .navbar { background: #1a1a1a !important; padding: 15px 0; }
+      .navbar-brand { font-weight: 700; font-size: 1.5rem; }
+      .navbar-nav .nav-link { color: #fff !important; font-weight: 500; margin: 0 5px; padding: 8px 15px !important; border-radius: 30px; transition: 0.3s; }
+      .navbar-nav .nav-link:hover { background-color: #e6b422; color: #1a1a1a !important; transform: translateY(-2px); }
+      .navbar-nav .nav-link.active { background-color: #e6b422; color: #1a1a1a !important; }
+      .navbar-toggler { border: 2px solid #e6b422; }
+      .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(230, 180, 34, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
+      .login_text a, .search_icon a { color: #e6b422; font-weight: 600; margin-right: 20px; }
+      .contact_section { background: #fff; padding: 60px 0; }
+      .contact_taital { font-size: 42px; font-weight: 700; text-align: center; margin-bottom: 40px; position: relative; }
+      .contact_taital:after { content: ''; width: 80px; height: 3px; background: #e6b422; display: block; margin: 12px auto 0; }
+      .info_card { background: #f8f9fa; border-radius: 20px; padding: 25px; margin-bottom: 30px; text-align: center; transition: 0.3s; }
+      .info_card i { font-size: 2.5rem; color: #e6b422; margin-bottom: 15px; }
+      .email_text, #datepicker, #timepicker, .form-control { width: 100%; padding: 12px; border-radius: 30px; border: 1px solid #ddd; margin-bottom: 20px; }
+      .book_btn a { background: #e6b422; padding: 12px 40px; border-radius: 40px; color: #1a1a1a; font-weight: bold; display: inline-block; transition: 0.3s; }
+      .book_btn a:hover { background: #1a1a1a; color: #e6b422; text-decoration: none; }
+      .map-container { border-radius: 20px; overflow: hidden; margin-top: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+      .footer_section { background: #0a0a0a; color: #ccc; padding: 40px 0; }
+      .social_icon ul { list-style: none; display: flex; justify-content: center; gap: 20px; padding: 0; }
+      .social_icon ul li a img { width: 35px; filter: brightness(0) invert(1); transition: 0.3s; }
+      .social_icon ul li a:hover img { filter: brightness(0) invert(0.7); }
+      .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.25); transition: 0.3s; }
+      .whatsapp-float:hover { transform: scale(1.1); background: #128C7E; }
+      @media (max-width:768px) { .contact_taital { font-size: 32px; } .navbar-nav .nav-link { text-align: center; margin: 5px 0; } .form-inline { justify-content: center; margin-top: 10px; } }
+   </style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<div class="header_section">
+   <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+         <a class="navbar-brand" href="index.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/scissors.png" style="width:40px;"> <span style="color:#e6b422;">S&T</span> Barber Lounge</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar"><span class="navbar-toggler-icon"></span></button>
+         <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ml-auto">
+               <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+               <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+               <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+               <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+               <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+            </ul>
+            <form class="form-inline ml-3"><p class="login_text mb-0 mr-3"><a href="https://web.facebook.com/profile.php?id=61589087050579" target="_blank">Facebook</a></p><div class="search_icon"><a href="#"><i class="fas fa-search text-white"></i></a></div></form>
+         </div>
+      </nav>
+   </div>
+</div>
+
+<!-- ========== CONTENT ========== -->
+<div class="contact_section layout_padding">
+   <div class="container">
+      <h1 class="contact_taital">Get in Touch</h1>
+      <div class="row">
+         <div class="col-md-4"><div class="info_card"><i class="fas fa-map-marker-alt"></i><h4>Visit Us</h4><p>J5FR+84F Chilanga,<br>Lusaka West, Zambia</p><a href="https://maps.google.com/?q=J5FR+84F+Chilanga" target="_blank">Open in Maps →</a></div></div>
+         <div class="col-md-4"><div class="info_card"><i class="fas fa-phone-alt"></i><h4>Call / WhatsApp</h4><p>+260 573420800</p><a href="tel:0573420800">Call now</a> | <a href="https://wa.me/0573420800">WhatsApp</a></div></div>
+         <div class="col-md-4"><div class="info_card"><i class="fas fa-clock"></i><h4>Opening Hours</h4><p>Mon – Sat: 9:00 – 19:00<br>Sun: 10:00 – 16:00</p><small>Walk‑ins always welcome</small></div></div>
+      </div>
+      <div class="row mt-4">
+         <div class="col-md-12"><h3 class="text-center mb-4">📅 Book an Appointment</h3>
+            <div class="row"><div class="col-md-6"><input type="text" class="email_text" id="bookingName" placeholder="Your Name"></div><div class="col-md-6"><input type="text" class="email_text" id="bookingPhone" placeholder="WhatsApp Number"></div></div>
+            <div class="row"><div class="col-md-6"><input id="datepicker" placeholder="Select Date"></div><div class="col-md-6"><input id="timepicker" placeholder="Select Time"></div></div>
+            <div class="row"><div class="col-md-6"><select class="form-control" id="serviceSelect"><option>Classic Haircut (K100)</option><option>Fade & Design (K120)</option><option>Beard Trim (K70)</option><option>Kids Cut (K80)</option><option>Hot Towel Shave (K90)</option></select></div><div class="col-md-6"><input type="text" class="email_text" id="specialRequest" placeholder="Special requests"></div></div>
+            <div class="text-center mt-3"><div class="book_btn"><a href="#" id="whatsappBookBtn">Book Now via WhatsApp</a></div></div>
+         </div>
+      </div>
+      <div class="mt-5"><h3 class="text-center">📍 Find Us – Chilanga, Lusaka West (Mungwi Road)</h3><div class="map-container"><iframe src="https://maps.google.com/maps?q=J5FR%2B84F%20Chilanga%2C%20Lusaka%20West%2C%20Zambia&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="350" style="border:0;" allowfullscreen></iframe></div><p class="text-muted text-center mt-2">Exact address: J5FR+84F Chilanga, Lusaka West – Look for our red and gold sign.</p></div>
+   </div>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<div class="footer_section layout_padding">
+   <div class="container">
+      <div class="location_main text-center"><p>📍 J5FR+84F Chilanga, Lusaka West | 📞 0573420800 | ✉️ stevenmvula243@gmail.com</p></div>
+      <div class="social_icon"><ul><li><a href="https://web.facebook.com/profile.php?id=61589087050579" target="_blank"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook--v1.png"></a></li><li><a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new--v1.png"></a></li><li><a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok--v1.png"></a></li><li><a href="https://wa.me/0573420800"><img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png"></a></li></ul></div>
+   </div>
+</div>
+<div class="copyright_section text-center py-3 bg-dark text-white"><p class="mb-0">© 2025 S & T Barber Lounge & Accessories | <a href="https://web.facebook.com/profile.php?id=61589087050579" class="text-warning">Facebook Page</a></p></div>
+
+<a href="https://wa.me/0573420800" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js"></script>
+<script>
+   $('#datepicker').datepicker({ uiLibrary: 'bootstrap', format: 'yyyy-mm-dd' });
+   $('#timepicker').timepicker({ uiLibrary: 'bootstrap', mode: '24hr' });
+   document.getElementById('whatsappBookBtn').addEventListener('click', function(e){
+      e.preventDefault();
+      let name = document.getElementById('bookingName').value;
+      let phone = document.getElementById('bookingPhone').value;
+      let date = document.getElementById('datepicker').value;
+      let time = document.getElementById('timepicker').value;
+      let service = document.getElementById('serviceSelect').value;
+      let special = document.getElementById('specialRequest').value;
+      let msg = `Hello S&T Barber Lounge (Chilanga). I'd like to book:%0A*Name:* ${name}%0A*WhatsApp:* ${phone}%0A*Date:* ${date}%0A*Time:* ${time}%0A*Service:* ${service}%0A*Special:* ${special}%0ALocation: J5FR+84F Chilanga.`;
+      window.open(`https://wa.me/0573420800?text=${msg}`, '_blank');
+   });
+</script>
+</body>
+</html>
