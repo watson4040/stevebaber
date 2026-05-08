@@ -25,6 +25,10 @@
       .contact_taital:after { content: ''; width: 80px; height: 3px; background: #e6b422; display: block; margin: 12px auto 0; }
       .info_card { background: #f8f9fa; border-radius: 20px; padding: 25px; margin-bottom: 30px; text-align: center; transition: 0.3s; }
       .info_card i { font-size: 2.5rem; color: #e6b422; margin-bottom: 15px; }
+      .price-card { background: #1a1a1a; color: #fff; border-radius: 20px; padding: 20px; margin-bottom: 30px; }
+      .price-card h4 { color: #e6b422; }
+      .price-card ul { list-style: none; padding: 0; }
+      .price-card li { padding: 8px 0; border-bottom: 1px solid #333; display: flex; justify-content: space-between; }
       .email_text, #datepicker, #timepicker, .form-control { width: 100%; padding: 12px; border-radius: 30px; border: 1px solid #ddd; margin-bottom: 20px; }
       .book_btn a { background: #e6b422; padding: 12px 40px; border-radius: 40px; color: #1a1a1a; font-weight: bold; display: inline-block; transition: 0.3s; }
       .book_btn a:hover { background: #1a1a1a; color: #e6b422; text-decoration: none; }
@@ -60,7 +64,7 @@
    </div>
 </div>
 
-<!-- ========== CONTENT ========== -->
+<!-- ========== CONTACT & PRICE LIST ========== -->
 <div class="contact_section layout_padding">
    <div class="container">
       <h1 class="contact_taital">Get in Touch</h1>
@@ -69,15 +73,66 @@
          <div class="col-md-4"><div class="info_card"><i class="fas fa-phone-alt"></i><h4>Call / WhatsApp</h4><p>+260 573420800</p><a href="tel:0573420800">Call now</a> | <a href="https://wa.me/0573420800">WhatsApp</a></div></div>
          <div class="col-md-4"><div class="info_card"><i class="fas fa-clock"></i><h4>Opening Hours</h4><p>Mon – Sat: 9:00 – 19:00<br>Sun: 10:00 – 16:00</p><small>Walk‑ins always welcome</small></div></div>
       </div>
-      <div class="row mt-4">
-         <div class="col-md-12"><h3 class="text-center mb-4">📅 Book an Appointment</h3>
-            <div class="row"><div class="col-md-6"><input type="text" class="email_text" id="bookingName" placeholder="Your Name"></div><div class="col-md-6"><input type="text" class="email_text" id="bookingPhone" placeholder="WhatsApp Number"></div></div>
-            <div class="row"><div class="col-md-6"><input id="datepicker" placeholder="Select Date"></div><div class="col-md-6"><input id="timepicker" placeholder="Select Time"></div></div>
-            <div class="row"><div class="col-md-6"><select class="form-control" id="serviceSelect"><option>Classic Haircut (K100)</option><option>Fade & Design (K120)</option><option>Beard Trim (K70)</option><option>Kids Cut (K80)</option><option>Hot Towel Shave (K90)</option></select></div><div class="col-md-6"><input type="text" class="email_text" id="specialRequest" placeholder="Special requests"></div></div>
-            <div class="text-center mt-3"><div class="book_btn"><a href="#" id="whatsappBookBtn">Book Now via WhatsApp</a></div></div>
+
+      <!-- PRICE LIST (separate from text area) -->
+      <div class="row">
+         <div class="col-md-6 mx-auto">
+            <div class="price-card">
+               <h4 class="text-center">💰 Our Services & Prices</h4>
+               <ul>
+                  <li><span>Classic Haircut</span><span>K100</span></li>
+                  <li><span>Fade & Design</span><span>K120</span></li>
+                  <li><span>Beard Trim</span><span>K70</span></li>
+                  <li><span>Kids Cut (under 12)</span><span>K80</span></li>
+                  <li><span>Hot Towel Shave</span><span>K90</span></li>
+                  <li><span>Accessories Consultation</span><span>Free</span></li>
+               </ul>
+               <p class="text-center text-muted small mt-2">Prices include VAT | Walk‑ins welcome</p>
+            </div>
          </div>
       </div>
-      <div class="mt-5"><h3 class="text-center">📍 Find Us – Chilanga, Lusaka West (Mungwi Road)</h3><div class="map-container"><iframe src="https://maps.google.com/maps?q=J5FR%2B84F%20Chilanga%2C%20Lusaka%20West%2C%20Zambia&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="350" style="border:0;" allowfullscreen></iframe></div><p class="text-muted text-center mt-2">Exact address: J5FR+84F Chilanga, Lusaka West – Look for our red and gold sign.</p></div>
+
+      <!-- Booking Form (no prices inside inputs) -->
+      <div class="row mt-4">
+         <div class="col-md-12">
+            <h3 class="text-center mb-4">📅 Book an Appointment</h3>
+            <div class="row">
+               <div class="col-md-6"><input type="text" class="email_text" id="bookingName" placeholder="Your Name"></div>
+               <div class="col-md-6"><input type="text" class="email_text" id="bookingPhone" placeholder="WhatsApp Number"></div>
+            </div>
+            <div class="row">
+               <div class="col-md-6"><input id="datepicker" placeholder="Select Date"></div>
+               <div class="col-md-6"><input id="timepicker" placeholder="Select Time"></div>
+            </div>
+            <div class="row">
+               <div class="col-md-6">
+                  <select class="form-control" id="serviceSelect">
+                     <option>Classic Haircut</option>
+                     <option>Fade & Design</option>
+                     <option>Beard Trim</option>
+                     <option>Kids Cut</option>
+                     <option>Hot Towel Shave</option>
+                     <option>Accessories Consultation</option>
+                  </select>
+               </div>
+               <div class="col-md-6">
+                  <input type="text" class="email_text" id="specialRequest" placeholder="Special requests (e.g., fade style)">
+               </div>
+            </div>
+            <div class="text-center mt-3">
+               <div class="book_btn"><a href="#" id="whatsappBookBtn">Book Now via WhatsApp</a></div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Google Map -->
+      <div class="mt-5">
+         <h3 class="text-center">📍 Find Us – Chilanga, Lusaka West (Mungwi Road)</h3>
+         <div class="map-container">
+            <iframe src="https://maps.google.com/maps?q=J5FR%2B84F%20Chilanga%2C%20Lusaka%20West%2C%20Zambia&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="350" style="border:0;" allowfullscreen></iframe>
+         </div>
+         <p class="text-muted text-center mt-2">Exact address: J5FR+84F Chilanga, Lusaka West – Look for our red and gold sign.</p>
+      </div>
    </div>
 </div>
 
@@ -106,7 +161,7 @@
       let time = document.getElementById('timepicker').value;
       let service = document.getElementById('serviceSelect').value;
       let special = document.getElementById('specialRequest').value;
-      let msg = `Hello S&T Barber Lounge (Chilanga). I'd like to book:%0A*Name:* ${name}%0A*WhatsApp:* ${phone}%0A*Date:* ${date}%0A*Time:* ${time}%0A*Service:* ${service}%0A*Special:* ${special}%0ALocation: J5FR+84F Chilanga.`;
+      let msg = `Hello S&T Barber Lounge (Chilanga). I'd like to book:%0A*Name:* ${name}%0A*WhatsApp:* ${phone}%0A*Date:* ${date}%0A*Time:* ${time}%0A*Service:* ${service}%0A*Special requests:* ${special}%0ALocation: J5FR+84F Chilanga.`;
       window.open(`https://wa.me/0573420800?text=${msg}`, '_blank');
    });
 </script>
