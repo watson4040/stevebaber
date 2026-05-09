@@ -7,11 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0a0a0a;
@@ -29,13 +25,8 @@
             top: 0;
             z-index: 1000;
         }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-        }
-        .logo span {
-            color: #e6b422;
-        }
+        .logo { font-size: 1.8rem; font-weight: 800; }
+        .logo span { color: #e6b422; }
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -47,18 +38,14 @@
             text-decoration: none;
             color: white;
         }
-        .nav-links a:hover {
-            color: #e6b422;
-        }
+        .nav-links a:hover { color: #e6b422; }
         .hamburger {
             display: none;
             font-size: 1.8rem;
             cursor: pointer;
         }
         @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
+            .hamburger { display: block; }
             .nav-links {
                 position: fixed;
                 top: 70px;
@@ -74,9 +61,7 @@
                 transition: left 0.3s ease;
                 z-index: 999;
             }
-            .nav-links.active {
-                left: 0;
-            }
+            .nav-links.active { left: 0; }
         }
         .blog-section {
             padding: 4rem 5%;
@@ -88,9 +73,7 @@
             margin-bottom: 2rem;
             text-align: center;
         }
-        .section-title span {
-            color: #e6b422;
-        }
+        .section-title span { color: #e6b422; }
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -100,41 +83,52 @@
             background-color: #1a1a1a;
             border-radius: 20px;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s;
         }
-        .blog-card:hover {
-            transform: translateY(-5px);
-        }
+        .blog-card:hover { transform: translateY(-5px); }
         .blog-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
-        .blog-content {
-            padding: 1.5rem;
+        .blog-content { padding: 1.5rem; }
+        .blog-category { color: #e6b422; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .blog-title { font-size: 1.3rem; margin: 0.5rem 0; }
+        .blog-excerpt { color: #ccc; margin-bottom: 1rem; }
+        .read-more { color: #e6b422; text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        .read-more:hover { color: #ffffff; }
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #333;
         }
-        .blog-category {
+        iframe {
+            width: 100%;
+            height: 350px;
+            border: 0;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .contact-info a {
             color: #e6b422;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .blog-title {
-            font-size: 1.3rem;
-            margin: 0.5rem 0;
-        }
-        .blog-excerpt {
-            color: #ccc;
-            margin-bottom: 1rem;
-        }
-        .read-more {
-            color: #e6b422;
+            font-size: 1.2rem;
             text-decoration: none;
-            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             transition: color 0.3s;
         }
-        .read-more:hover {
-            color: #ffffff;
+        .contact-info a:hover { color: #ffffff; }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #050505;
+            margin-top: 3rem;
         }
         .btn-whatsapp {
             position: fixed;
@@ -149,26 +143,17 @@
             justify-content: center;
             font-size: 2rem;
             color: white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             transition: transform 0.3s;
             text-decoration: none;
         }
-        .btn-whatsapp:hover {
-            transform: scale(1.1);
-        }
-        .footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: #050505;
-            margin-top: 3rem;
-        }
+        .btn-whatsapp:hover { transform: scale(1.1); }
         @media (max-width: 768px) {
             .section-title { font-size: 2rem; }
+            .contact-info { flex-direction: column; align-items: center; gap: 1rem; }
         }
     </style>
 </head>
 <body>
-
     <nav class="navbar">
         <div class="logo">S & T <span>Barber Lounge</span></div>
         <ul class="nav-links">
@@ -184,123 +169,39 @@
     <div class="blog-section">
         <h1 class="section-title">Grooming <span>Journal</span></h1>
         <div class="blog-grid">
-            <!-- Blog Post 1: Accessories Focus -->
-            <article class="blog-card">
-                <img src="https://images.pexels.com/photos/3812900/pexels-photo-3812900.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Beard oils and accessories">
-                <div class="blog-content">
-                    <div class="blog-category">Accessories</div>
-                    <h2 class="blog-title">Top 5 Beard Oils for a Soft, Healthy Beard</h2>
-                    <p class="blog-excerpt">Discover the best ingredients – argan, jojoba, and more – to keep your beard itch-free and well-groomed. We stock these premium oils at S&T Lounge.</p>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-            </article>
-            <!-- Blog Post 2: Barber Technique -->
-            <article class="blog-card">
-                <img src="https://images.pexels.com/photos/3993447/pexels-photo-3993447.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Hot towel shave">
-                <div class="blog-content">
-                    <div class="blog-category">Barber Tips</div>
-                    <h2 class="blog-title">Why a Hot Towel Shave is a Game Changer</h2>
-                    <p class="blog-excerpt">Experience the ultimate luxury: opens pores, softens hair, and reduces irritation. Learn why our clients love this classic service.</p>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-            </article>
-            <!-- Blog Post 3: Maintenance -->
-            <article class="blog-card">
-                <img src="https://images.pexels.com/photos/3997822/pexels-photo-3997822.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Skin fade">
-                <div class="blog-content">
-                    <div class="blog-category">Styles</div>
-                    <h2 class="blog-title">How to Maintain Your Skin Fade Between Visits</h2>
-                    <p class="blog-excerpt">Keep your fade looking fresh with these simple home care tips, including the right clipper settings and moisturizing routine.</p>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-            </article>
-            <!-- Blog Post 4: Accessories Buyers Guide -->
-            <article class="blog-card">
-                <img src="https://images.pexels.com/photos/3823716/pexels-photo-3823716.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Grooming accessories">
-                <div class="blog-content">
-                    <div class="blog-category">Accessories</div>
-                    <h2 class="blog-title">Must-Have Grooming Accessories for Every Man</h2>
-                    <p class="blog-excerpt">From premium clippers to beard combs and pomades, we review the essentials that elevate your daily routine. Available at our lounge.</p>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-            </article>
-            <!-- Blog Post 5: Beard Sculpting -->
-            <article class="blog-card">
-                <img src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Beard sculpting">
-                <div class="blog-content">
-                    <div class="blog-category">Grooming</div>
-                    <h2 class="blog-title">The Art of Beard Sculpting: Shape & Definition</h2>
-                    <p class="blog-excerpt">Our barbers share techniques to achieve sharp lines and symmetrical shape that complements your face structure.</p>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-            </article>
-            <!-- Blog Post 6: Kids' First Haircut -->
-            <article class="blog-card">
-                <img src="https://images.pexels.com/photos/3993460/pexels-photo-3993460.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Kids haircut">
-                <div class="blog-content">
-                    <div class="blog-category">Family</div>
-                    <h2 class="blog-title">Making Your Child's First Barber Visit Fun</h2>
-                    <p class="blog-excerpt">Tips for a stress‑free first haircut – how our kid‑friendly barbers create a welcoming experience for little ones.</p>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-            </article>
+            <article class="blog-card"><img src="https://images.pexels.com/photos/3812900/pexels-photo-3812900.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Accessories"><div class="blog-content"><div class="blog-category">Accessories</div><h2 class="blog-title">Top 5 Beard Oils for a Soft, Healthy Beard</h2><p class="blog-excerpt">Discover the best ingredients – argan, jojoba, and more – to keep your beard itch-free and well-groomed.</p><a href="#" class="read-more">Read More →</a></div></article>
+            <article class="blog-card"><img src="https://images.pexels.com/photos/3993447/pexels-photo-3993447.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Hot towel shave"><div class="blog-content"><div class="blog-category">Barber Tips</div><h2 class="blog-title">Why a Hot Towel Shave is a Game Changer</h2><p class="blog-excerpt">Opens pores, softens hair, and reduces irritation. A luxury you deserve.</p><a href="#" class="read-more">Read More →</a></div></article>
+            <article class="blog-card"><img src="https://images.pexels.com/photos/3997822/pexels-photo-3997822.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Skin fade"><div class="blog-content"><div class="blog-category">Styles</div><h2 class="blog-title">How to Maintain Your Skin Fade Between Visits</h2><p class="blog-excerpt">Keep your fade looking fresh with simple home care tips.</p><a href="#" class="read-more">Read More →</a></div></article>
+            <article class="blog-card"><img src="https://images.pexels.com/photos/3823716/pexels-photo-3823716.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Accessories"><div class="blog-content"><div class="blog-category">Accessories</div><h2 class="blog-title">Must-Have Grooming Accessories for Every Man</h2><p class="blog-excerpt">From premium clippers to beard combs – elevate your daily routine.</p><a href="#" class="read-more">Read More →</a></div></article>
+            <article class="blog-card"><img src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Beard sculpting"><div class="blog-content"><div class="blog-category">Grooming</div><h2 class="blog-title">The Art of Beard Sculpting: Shape & Definition</h2><p class="blog-excerpt">Learn techniques to achieve sharp, symmetrical beard lines.</p><a href="#" class="read-more">Read More →</a></div></article>
+            <article class="blog-card"><img src="https://images.pexels.com/photos/3993460/pexels-photo-3993460.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Kids haircut"><div class="blog-content"><div class="blog-category">Family</div><h2 class="blog-title">Making Your Child's First Barber Visit Fun</h2><p class="blog-excerpt">Tips for a stress‑free first haircut experience.</p><a href="#" class="read-more">Read More →</a></div></article>
         </div>
     </div>
 
-    <a href="https://wa.me/260973420800" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
-
-    <div class="footer">
-        <p>&copy; 2025 S & T Barber Lounge & Accessories. All rights reserved.</p>
-    </div>
-
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
-    </script>
-    <h2 class="section-title">Our <span>Location</span></h2>
+    <!-- Map -->
+    <div style="padding: 0 5%; margin-top: 2rem;">
+        <h2 class="section-title">Our <span>Location</span></h2>
         <div class="map-container">
-            <!-- ⚠️ REPLACE THE IFRAME BELOW WITH YOUR OWN EMBED CODE FROM GOOGLE MAPS ⚠️ -->
-            <!-- 1. Open your link: https://maps.app.goo.gl/pMmouUgsbZpwAbhc7 -->
-            <!-- 2. Click Share → Embed a map → Copy the entire iframe code -->
-            <!-- 3. Paste it here, replacing this entire <iframe> block -->
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.9963499905625!2d28.187715073908535!3d-15.376684012805882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f700591f28a3%3A0x664f1354ae51eec5!2sS%20%26%20T%20Baber%20Lounge%20and%20Accessories!5e0!3m2!1sen!2szm!4v1778323821569!5m2!1sen!2szm" width="1400" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.9963499905625!2d28.187715073908535!3d-15.376684012805882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f700591f28a3%3A0x664f1354ae51eec5!2sS%20%26%20T%20Baber%20Lounge%20and%20Accessories!5e0!3m2!1sen!2szm!4v1778323821569!5m2!1sen!2szm" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
         <p style="text-align: center; margin-top: 1rem; color: #ccc;">📍 S & T Barber Lounge and Accessories – J5FR+84F Chilanga, Lusaka West</p>
     </div>
 
-    <!-- Social media and email section (Facebook + Gmail) -->
     <div class="contact-info">
         <a href="https://www.facebook.com/profile.php?id=61589087050579" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
         <a href="mailto:stevenmvula243@gmail.com"><i class="fas fa-envelope"></i> stevenmvula243@gmail.com</a>
     </div>
 
-    <a href="https://wa.me/260573420800" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <div class="footer">
+        <p>&copy; 2025 S & T Barber Lounge & Accessories. All rights reserved.</p>
+    </div>
 
-    
+    <a href="https://wa.me/260573420800" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
         hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
-
-        const form = document.getElementById('contactForm');
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = form.querySelector('input[name="name"]').value;
-            const phone = form.querySelector('input[name="phone"]').value;
-            const date = form.querySelector('input[name="date"]').value;
-            const time = form.querySelector('input[name="time"]').value;
-            const service = form.querySelector('select[name="service"]').value;
-            const requests = form.querySelector('textarea[name="requests"]').value;
-            const msg = `Hello S&T Barber Lounge, I'd like to book an appointment.%0A%0AName: ${name}%0APhone: ${phone}%0ADate: ${date}%0ATime: ${time}%0AService: ${service}%0ASpecial requests: ${requests}`;
-            // WhatsApp number changed to 0573420800 (Zambia format: +260 573420800)
-            window.open(`https://wa.me/260573420800?text=${msg}`, '_blank');
-        });
     </script>
-       <div class="footer">
-        <p>&copy; 2025 S & T Barber Lounge & Accessories. All rights reserved.</p>
-    </div>
 </body>
 </html>
