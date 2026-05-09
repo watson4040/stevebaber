@@ -247,7 +247,8 @@
         </div>
     </div>
 
-    <a href="https://wa.me/260573420800" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/260973420800" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
 
     <div class="footer">
         <p>&copy; 2025 S & T Barber Lounge & Accessories. All rights reserved.</p>
@@ -258,5 +259,48 @@
         const navLinks = document.querySelector('.nav-links');
         hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
     </script>
+    <h2 class="section-title">Our <span>Location</span></h2>
+        <div class="map-container">
+            <!-- ⚠️ REPLACE THE IFRAME BELOW WITH YOUR OWN EMBED CODE FROM GOOGLE MAPS ⚠️ -->
+            <!-- 1. Open your link: https://maps.app.goo.gl/pMmouUgsbZpwAbhc7 -->
+            <!-- 2. Click Share → Embed a map → Copy the entire iframe code -->
+            <!-- 3. Paste it here, replacing this entire <iframe> block -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.9963499905625!2d28.187715073908535!3d-15.376684012805882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f700591f28a3%3A0x664f1354ae51eec5!2sS%20%26%20T%20Baber%20Lounge%20and%20Accessories!5e0!3m2!1sen!2szm!4v1778323821569!5m2!1sen!2szm" width="1400" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <p style="text-align: center; margin-top: 1rem; color: #ccc;">📍 S & T Barber Lounge and Accessories – J5FR+84F Chilanga, Lusaka West</p>
+    </div>
+
+    <!-- Social media and email section (Facebook + Gmail) -->
+    <div class="contact-info">
+        <a href="https://www.facebook.com/profile.php?id=61589087050579" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="mailto:stevenmvula243@gmail.com"><i class="fas fa-envelope"></i> stevenmvula243@gmail.com</a>
+    </div>
+
+    <a href="https://wa.me/260573420800" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = form.querySelector('input[name="name"]').value;
+            const phone = form.querySelector('input[name="phone"]').value;
+            const date = form.querySelector('input[name="date"]').value;
+            const time = form.querySelector('input[name="time"]').value;
+            const service = form.querySelector('select[name="service"]').value;
+            const requests = form.querySelector('textarea[name="requests"]').value;
+            const msg = `Hello S&T Barber Lounge, I'd like to book an appointment.%0A%0AName: ${name}%0APhone: ${phone}%0ADate: ${date}%0ATime: ${time}%0AService: ${service}%0ASpecial requests: ${requests}`;
+            // WhatsApp number changed to 0573420800 (Zambia format: +260 573420800)
+            window.open(`https://wa.me/260573420800?text=${msg}`, '_blank');
+        });
+    </script>
+       <div class="footer">
+        <p>&copy; 2025 S & T Barber Lounge & Accessories. All rights reserved.</p>
+    </div>
 </body>
 </html>
