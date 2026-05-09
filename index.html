@@ -3,29 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S & T Barber Lounge and Accessories. | Home</title>
+    <title>S & T Barber Lounge & Accessories | Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0a0a0a;
             color: #ffffff;
             line-height: 1.6;
         }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* --- Responsive Navbar --- */
+        a { text-decoration: none; color: inherit; }
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -37,43 +26,27 @@
             top: 0;
             z-index: 1000;
         }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        .logo span {
-            color: #e6b422;
-        }
-
+        .logo { font-size: 1.8rem; font-weight: 800; }
+        .logo span { color: #e6b422; }
         .nav-links {
             display: flex;
             gap: 2rem;
             list-style: none;
         }
-
         .nav-links a {
             font-weight: 500;
             transition: color 0.3s ease;
+            text-decoration: none;
+            color: white;
         }
-
-        .nav-links a:hover {
-            color: #e6b422;
-        }
-
+        .nav-links a:hover { color: #e6b422; }
         .hamburger {
             display: none;
             font-size: 1.8rem;
             cursor: pointer;
         }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
+            .hamburger { display: block; }
             .nav-links {
                 position: fixed;
                 top: 70px;
@@ -89,12 +62,8 @@
                 transition: left 0.3s ease;
                 z-index: 999;
             }
-            .nav-links.active {
-                left: 0;
-            }
+            .nav-links.active { left: 0; }
         }
-
-        /* --- Hero Section --- */
         .hero {
             min-height: 90vh;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
@@ -104,24 +73,18 @@
             text-align: center;
             padding: 2rem;
         }
-
         .hero-content h1 {
             font-size: 4rem;
             font-weight: 800;
             margin-bottom: 1rem;
         }
-
-        .hero-content h1 span {
-            color: #e6b422;
-        }
-
+        .hero-content h1 span { color: #e6b422; }
         .hero-content p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
             max-width: 600px;
             color: #ccc;
         }
-
         .btn {
             display: inline-block;
             padding: 12px 32px;
@@ -130,62 +93,45 @@
             font-weight: 700;
             border-radius: 40px;
             transition: all 0.3s ease;
-            border: none;
             cursor: pointer;
         }
-
         .btn:hover {
             background-color: #ffffff;
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
-
-        /* --- Services Preview --- */
         .services-preview, .gallery-preview, .testimonials {
             padding: 5rem 5%;
             text-align: center;
         }
-
         .section-title {
             font-size: 2.5rem;
             margin-bottom: 3rem;
             font-weight: 700;
         }
-
-        .section-title span {
-            color: #e6b422;
-        }
-
+        .section-title span { color: #e6b422; }
         .service-cards, .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
-
         .card {
             background-color: #1a1a1a;
             padding: 2rem;
             border-radius: 12px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
-
         .card i {
             font-size: 2.5rem;
             color: #e6b422;
             margin-bottom: 1rem;
         }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
+        .card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
         .btn-outline {
             background-color: transparent;
             border: 1px solid #e6b422;
@@ -193,39 +139,68 @@
             margin-top: 1rem;
             display: inline-block;
         }
-        
         .btn-outline:hover {
             background-color: #e6b422;
             color: #0a0a0a;
         }
-
-        /* --- Footer --- */
-        .footer {
-            background-color: #050505;
-            padding: 3rem 5%;
-            text-align: center;
-            border-top: 1px solid #222;
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #333;
         }
-
-        .social-links a {
-            font-size: 1.5rem;
-            margin: 0 0.5rem;
-            transition: color 0.3s ease;
+        iframe {
+            width: 100%;
+            height: 350px;
+            border: 0;
         }
-
-        .social-links a:hover {
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .contact-info a {
             color: #e6b422;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
         }
-
+        .contact-info a:hover { color: #ffffff; }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #050505;
+            margin-top: 3rem;
+        }
+        .btn-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+        .btn-whatsapp:hover { transform: scale(1.1); }
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 2.5rem; }
             .section-title { font-size: 2rem; }
+            .contact-info { flex-direction: column; align-items: center; gap: 1rem; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">S & T <span>Barber Lounge</span></div>
         <ul class="nav-links">
@@ -235,12 +210,9 @@
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-        <div class="hamburger">
-            <i class="fas fa-bars"></i>
-        </div>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>S & T <span>Barber Lounge</span><br> & Accessories</h1>
@@ -249,7 +221,6 @@
         </div>
     </section>
 
-    <!-- Services Preview -->
     <section class="services-preview">
         <h2 class="section-title">Our <span>Signature Services</span></h2>
         <div class="service-cards">
@@ -259,7 +230,6 @@
         </div>
     </section>
 
-    <!-- Gallery Preview -->
     <section class="gallery-preview" style="background-color: #111;">
         <h2 class="section-title">Our <span>Gallery</span></h2>
         <div class="gallery-grid">
@@ -270,66 +240,31 @@
         <a href="gallery.html" class="btn btn-outline" style="margin-top: 2rem;">View Full Gallery</a>
     </section>
 
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/260973420800" class="btn-whatsapp" style="position: fixed; bottom: 20px; right: 20px; background-color: #25D366; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.3s;"><i class="fab fa-whatsapp"></i></a>
-
-
-    
-
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    </script>
-    <h2 class="section-title">Our <span>Location</span></h2>
+    <!-- Location Map (same style as contact page) -->
+    <div style="padding: 0 5%; margin-top: 2rem;">
+        <h2 class="section-title">Our <span>Location</span></h2>
         <div class="map-container">
-            <!-- ⚠️ REPLACE THE IFRAME BELOW WITH YOUR OWN EMBED CODE FROM GOOGLE MAPS ⚠️ -->
-            <!-- 1. Open your link: https://maps.app.goo.gl/pMmouUgsbZpwAbhc7 -->
-            <!-- 2. Click Share → Embed a map → Copy the entire iframe code -->
-            <!-- 3. Paste it here, replacing this entire <iframe> block -->
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.9963499905625!2d28.187715073908535!3d-15.376684012805882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f700591f28a3%3A0x664f1354ae51eec5!2sS%20%26%20T%20Baber%20Lounge%20and%20Accessories!5e0!3m2!1sen!2szm!4v1778323821569!5m2!1sen!2szm" width="1400" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.9963499905625!2d28.187715073908535!3d-15.376684012805882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f700591f28a3%3A0x664f1354ae51eec5!2sS%20%26%20T%20Baber%20Lounge%20and%20Accessories!5e0!3m2!1sen!2szm!4v1778323821569!5m2!1sen!2szm" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <p style="text-align: center; margin-top: 1rem; color: #ccc;">📍 S & T Barber Lounge and Accessories – J5FR+84F Chilanga, Lusaka West</p>
     </div>
 
-    <!-- Social media and email section (Facebook + Gmail) -->
+    <!-- Social & Email (same as contact page) -->
     <div class="contact-info">
         <a href="https://www.facebook.com/profile.php?id=61589087050579" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
         <a href="mailto:stevenmvula243@gmail.com"><i class="fas fa-envelope"></i> stevenmvula243@gmail.com</a>
     </div>
 
-    <a href="https://wa.me/260573420800" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <div class="footer">
+        <p>&copy; 2025 S & T Barber Lounge & Accessories. All rights reserved.</p>
+    </div>
 
-    
+    <a href="https://wa.me/260573420800" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
         hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
-
-        const form = document.getElementById('contactForm');
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = form.querySelector('input[name="name"]').value;
-            const phone = form.querySelector('input[name="phone"]').value;
-            const date = form.querySelector('input[name="date"]').value;
-            const time = form.querySelector('input[name="time"]').value;
-            const service = form.querySelector('select[name="service"]').value;
-            const requests = form.querySelector('textarea[name="requests"]').value;
-            const msg = `Hello S&T Barber Lounge, I'd like to book an appointment.%0A%0AName: ${name}%0APhone: ${phone}%0ADate: ${date}%0ATime: ${time}%0AService: ${service}%0ASpecial requests: ${requests}`;
-            // WhatsApp number changed to 0573420800 (Zambia format: +260 573420800)
-            window.open(`https://wa.me/260573420800?text=${msg}`, '_blank');
-        });
     </script>
-    <footer class="footer">
-        <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-tiktok"></i></a>
-        </div>
-        <p>&copy; 2025 S & T Barber Lounge & Accessories. All rights reserved.</p>
-    </footer>
 </body>
 </html>
