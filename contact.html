@@ -4,78 +4,29 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
    <title>Contact & Booking | S & T Barber Lounge – Lusaka West</title>
-   <meta name="description" content="Contact S & T Barber Lounge in Chilanga, Lusaka West. Book appointments, view prices, and find us on Google Maps.">
-   <!-- ========== EXTERNAL STYLES & FONTS ========== -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css">
    <style>
-      /* ========== GLOBAL RESET ========== */
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font-family: 'Poppins', sans-serif; background: #fff; color: #1c1c1c; }
-
-      /* ========== RESPONSIVE NAVBAR (hover effects included) ========== */
       .header_section { background: #1a1a1a; padding-bottom: 30px; }
       .navbar { background: #1a1a1a !important; padding: 15px 0; }
       .navbar-brand { font-weight: 700; font-size: 1.5rem; }
-      .navbar-nav .nav-link {
-         color: #fff !important;
-         font-weight: 500;
-         margin: 0 5px;
-         padding: 8px 15px !important;
-         border-radius: 30px;
-         transition: all 0.3s ease;
-      }
-      .navbar-nav .nav-link:hover {
-         background-color: #e6b422;
-         color: #1a1a1a !important;
-         transform: translateY(-2px);
-      }
-      .navbar-nav .nav-link.active {
-         background-color: #e6b422;
-         color: #1a1a1a !important;
-      }
+      .navbar-nav .nav-link { color: #fff !important; font-weight: 500; margin: 0 5px; padding: 8px 15px !important; border-radius: 30px; transition: 0.3s; }
+      .navbar-nav .nav-link:hover { background-color: #e6b422; color: #1a1a1a !important; transform: translateY(-2px); }
+      .navbar-nav .nav-link.active { background-color: #e6b422; color: #1a1a1a !important; }
       .navbar-toggler { border: 2px solid #e6b422; }
-      .navbar-toggler-icon {
-         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(230, 180, 34, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-      }
+      .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(230, 180, 34, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
       .login_text a, .search_icon a { color: #e6b422; font-weight: 600; margin-right: 20px; }
       .login_text a:hover, .search_icon a:hover { color: #fff; }
-
-      /* ========== CONTACT PAGE SECTIONS ========== */
       .contact_section { background: #fff; padding: 60px 0; }
-      .contact_taital {
-         font-size: 42px;
-         font-weight: 700;
-         text-align: center;
-         margin-bottom: 40px;
-         position: relative;
-      }
-      .contact_taital:after {
-         content: '';
-         width: 80px;
-         height: 3px;
-         background: #e6b422;
-         display: block;
-         margin: 12px auto 0;
-      }
-      .info_card {
-         background: #f8f9fa;
-         border-radius: 20px;
-         padding: 25px;
-         margin-bottom: 30px;
-         text-align: center;
-         transition: 0.3s;
-      }
+      .contact_taital { font-size: 42px; font-weight: 700; text-align: center; margin-bottom: 40px; position: relative; }
+      .contact_taital:after { content: ''; width: 80px; height: 3px; background: #e6b422; display: block; margin: 12px auto 0; }
+      .info_card { background: #f8f9fa; border-radius: 20px; padding: 25px; margin-bottom: 30px; text-align: center; }
       .info_card i { font-size: 2.5rem; color: #e6b422; margin-bottom: 15px; }
-
-      /* ========== TEXT INPUTS (all form fields share this style) ========== */
-      .email_text,
-      #datepicker,
-      #timepicker,
-      .form-control,
-      .custom-select-trigger {  /* Applies to our custom dropdown trigger */
+      .email_text, #datepicker, #timepicker, .form-control, .custom-select-trigger {
          width: 100%;
          padding: 12px 15px;
          border-radius: 30px;
@@ -87,45 +38,19 @@
          height: auto;
          line-height: 1.5;
       }
-
-      /* ========== CUSTOM DROPDOWN (identical height and style to inputs) ========== */
-      /* 🔧 The .custom-select-wrapper and its children create a fully styleable dropdown
-         that looks exactly like a text input box, with the same padding, border-radius,
-         and background color. This completely bypasses browser-native <select> limitations. */
-
-      .custom-select-wrapper {
-         position: relative;
-         width: 100%;
-         margin-bottom: 20px;
-      }
-
+      .custom-select-wrapper { position: relative; width: 100%; margin-bottom: 20px; }
       .custom-select-trigger {
          display: flex;
-         justify-content: space-between; /* Pushes the arrow to the right */
-         align-items: center !important; /* 🔧 CRITICAL: Ensures vertical centering */
+         justify-content: space-between;
+         align-items: center;
          background-color: #fff;
          cursor: pointer;
-         user-select: none;
-         gap: 10px;
       }
-
-      /* 🔧 This is what aligns all option text dead-center horizontally.
-         The `flex: 1` makes the span take all available space, and `text-align: center`
-         forces the inner text to the middle. Basic text-align won't work on a flex child,
-         so we use a combination of flex, margin, and text-align to achieve perfect centering. */
       .selected-text {
          flex: 1;
          text-align: center !important;
-         font-weight: normal;
       }
-
-      .arrow {
-         font-size: 12px;
-         color: #666;
-         transition: transform 0.2s;
-         flex-shrink: 0;
-      }
-
+      .arrow { font-size: 12px; color: #666; }
       .custom-select-options {
          position: absolute;
          top: calc(100% + 5px);
@@ -140,118 +65,32 @@
          overflow-y: auto;
          display: none;
       }
-
       .custom-select-options.show { display: block; }
-
       .custom-option {
-         /* 🔧 Each option gets the same clean vertical and horizontal spacing as a text input */
          padding: 12px 15px;
          font-size: 16px;
          font-family: 'Poppins', sans-serif;
          cursor: pointer;
-         transition: background 0.2s;
-         line-height: 1.5;
-         text-align: center !important; /* 🔧 THIS CENTERS THE PRICE/EACH OPTION TEXT */
+         text-align: center !important;
       }
-
       .custom-option:hover { background-color: #f5f5f5; }
-      .custom-option.selected {
-         background-color: #e6b42220;
-         color: #1a1a1a;
-         font-weight: 500;
-      }
-
-      /* Force the selected text in the trigger to stay centered even when an option is chosen */
-      .custom-select-trigger .selected-text {
-         text-align: center;
-      }
-
-      /* Fix for datepicker/timepicker internal input style */
-      .gj-datepicker input,
-      .gj-timepicker input {
-         padding: 12px 15px !important;
-         border-radius: 30px !important;
-         border: 1px solid #ddd !important;
-         font-size: 16px !important;
-         font-family: 'Poppins', sans-serif !important;
-      }
-
-      .book_btn a {
-         background: #e6b422;
-         padding: 12px 40px;
-         border-radius: 40px;
-         color: #1a1a1a;
-         font-weight: bold;
-         display: inline-block;
-         transition: 0.3s;
-      }
+      .custom-option.selected { background-color: #e6b42220; font-weight: 500; }
+      .book_btn a { background: #e6b422; padding: 12px 40px; border-radius: 40px; color: #1a1a1a; font-weight: bold; display: inline-block; }
       .book_btn a:hover { background: #1a1a1a; color: #e6b422; text-decoration: none; }
-
-      /* ========== GOOGLE MAP CONTAINER (uses your exact link) ========== */
-      .map-container {
-         border-radius: 20px;
-         overflow: hidden;
-         margin-top: 20px;
-         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      }
-
-      /* ========== FOOTER ========== */
+      .map-container { border-radius: 20px; overflow: hidden; margin-top: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
       .footer_section { background: #0a0a0a; color: #ccc; padding: 40px 0; }
-      .social_icon ul {
-         list-style: none;
-         display: flex;
-         justify-content: center;
-         gap: 20px;
-         padding: 0;
-      }
-      .social_icon ul li a img {
-         width: 35px;
-         filter: brightness(0) invert(1);
-         transition: 0.3s;
-      }
-      .social_icon ul li a:hover img { filter: brightness(0) invert(0.7); }
-
-      /* WhatsApp floating button */
-      .whatsapp-float {
-         position: fixed;
-         bottom: 20px;
-         right: 20px;
-         background: #25D366;
-         width: 55px;
-         height: 55px;
-         border-radius: 50%;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         font-size: 1.8rem;
-         color: white;
-         z-index: 1000;
-         box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-         transition: 0.3s;
-      }
-      .whatsapp-float:hover { transform: scale(1.1); background: #128C7E; }
-
-      /* Mobile responsiveness */
-      @media (max-width:768px) {
-         .contact_taital { font-size: 32px; }
-         .navbar-nav .nav-link { text-align: center; margin: 5px 0; }
-         .form-inline { justify-content: center; margin-top: 10px; }
-      }
+      .social_icon ul { list-style: none; display: flex; justify-content: center; gap: 20px; padding: 0; }
+      .social_icon ul li a img { width: 35px; filter: brightness(0) invert(1); }
+      .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: white; z-index: 1000; }
+      @media (max-width:768px) { .contact_taital { font-size: 32px; } .navbar-nav .nav-link { text-align: center; margin: 5px 0; } }
    </style>
 </head>
 <body>
-
-<!-- ========== NAVBAR (fully responsive) ========== -->
 <div class="header_section">
    <div class="container-fluid">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-         <a class="navbar-brand" href="index.html">
-            <img src="https://img.icons8.com/ios-filled/50/ffffff/scissors.png" style="width:40px;">
-            <span style="color:#e6b422;">S&T</span> Barber Lounge
-         </a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar">
-            <span class="navbar-toggler-icon"></span>
-         </button>
+         <a class="navbar-brand" href="index.html"><img src="https://img.icons8.com/ios-filled/50/ffffff/scissors.png" style="width:40px;"> <span style="color:#e6b422;">S&T</span> Barber Lounge</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar"><span class="navbar-toggler-icon"></span></button>
          <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav ml-auto">
                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
@@ -260,59 +99,27 @@
                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
             </ul>
-            <form class="form-inline ml-3">
-               <p class="login_text mb-0 mr-3"><a href="https://web.facebook.com/profile.php?id=61589087050579" target="_blank">Facebook</a></p>
-               <div class="search_icon"><a href="#"><i class="fas fa-search text-white"></i></a></div>
-            </form>
+            <form class="form-inline ml-3"><p class="login_text mb-0 mr-3"><a href="https://web.facebook.com/profile.php?id=61589087050579" target="_blank">Facebook</a></p><div class="search_icon"><a href="#"><i class="fas fa-search text-white"></i></a></div></form>
          </div>
       </nav>
    </div>
 </div>
 
-<!-- ========== CONTACT & BOOKING SECTION ========== -->
 <div class="contact_section layout_padding">
    <div class="container">
       <h1 class="contact_taital">Get in Touch</h1>
-
-      <!-- Info Cards (Visit, Call/WhatsApp, Hours) -->
       <div class="row">
-         <div class="col-md-4">
-            <div class="info_card">
-               <i class="fas fa-map-marker-alt"></i>
-               <h4>Visit Us</h4>
-               <p>J5FR+84F Chilanga,<br>Lusaka West, Zambia</p>
-               <a href="https://maps.google.com/?q=J5FR+84F+Chilanga" target="_blank">Open in Maps →</a>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="info_card">
-               <i class="fas fa-phone-alt"></i>
-               <h4>Call / WhatsApp</h4>
-               <p>+260 573420800</p>
-               <a href="tel:0573420800">Call now</a> | <a href="https://wa.me/0573420800">WhatsApp</a>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="info_card">
-               <i class="fas fa-clock"></i>
-               <h4>Opening Hours</h4>
-               <p>Mon – Sat: 9:00 – 19:00<br>Sun: 10:00 – 16:00</p>
-               <small>Walk‑ins always welcome</small>
-            </div>
-         </div>
+         <div class="col-md-4"><div class="info_card"><i class="fas fa-map-marker-alt"></i><h4>Visit Us</h4><p>J5FR+84F Chilanga,<br>Lusaka West, Zambia</p><a href="https://maps.google.com/?q=J5FR+84F+Chilanga" target="_blank">Open in Maps →</a></div></div>
+         <div class="col-md-4"><div class="info_card"><i class="fas fa-phone-alt"></i><h4>Call / WhatsApp</h4><p>+260 573420800</p><a href="tel:0573420800">Call now</a> | <a href="https://wa.me/0573420800">WhatsApp</a></div></div>
+         <div class="col-md-4"><div class="info_card"><i class="fas fa-clock"></i><h4>Opening Hours</h4><p>Mon – Sat: 9:00 – 19:00<br>Sun: 10:00 – 16:00</p><small>Walk‑ins always welcome</small></div></div>
       </div>
 
-      <!-- ========== BOOKING FORM with CUSTOM DROPDOWN ========== -->
       <div class="row mt-4">
          <div class="col-md-12">
             <h3 class="text-center mb-4">📅 Book an Appointment</h3>
             <div class="row">
-               <div class="col-md-6">
-                  <input type="text" class="email_text" id="bookingName" placeholder="Your Name">
-               </div>
-               <div class="col-md-6">
-                  <input type="text" class="email_text" id="bookingPhone" placeholder="WhatsApp Number">
-               </div>
+               <div class="col-md-6"><input type="text" class="email_text" id="bookingName" placeholder="Your Name"></div>
+               <div class="col-md-6"><input type="text" class="email_text" id="bookingPhone" placeholder="WhatsApp Number"></div>
             </div>
             <div class="row">
                <div class="col-md-6"><input id="datepicker" placeholder="Select Date"></div>
@@ -320,7 +127,6 @@
             </div>
             <div class="row">
                <div class="col-md-6">
-                  <!-- 🔧 CUSTOM DROPDOWN: Fully styleable, text centered -->
                   <div class="custom-select-wrapper" id="serviceDropdown">
                      <div class="custom-select-trigger">
                         <span class="selected-text">Classic Haircut (K100)</span>
@@ -337,117 +143,72 @@
                   </div>
                   <input type="hidden" id="serviceSelect" value="Classic Haircut (K100)">
                </div>
-               <div class="col-md-6">
-                  <input type="text" class="email_text" id="specialRequest" placeholder="Special requests (e.g., fade style)">
-               </div>
+               <div class="col-md-6"><input type="text" class="email_text" id="specialRequest" placeholder="Special requests (e.g., fade style)"></div>
             </div>
-            <div class="text-center mt-3">
-               <div class="book_btn"><a href="#" id="whatsappBookBtn">Book Now via WhatsApp</a></div>
-            </div>
+            <div class="text-center mt-3"><div class="book_btn"><a href="#" id="whatsappBookBtn">Book Now via WhatsApp</a></div></div>
          </div>
       </div>
    </div>
 </div>
 
-<!-- ========== LOCATION & MAP SECTION – USING YOUR EXACT GOOGLE MAPS SHORT LINK ========== -->
+<!-- ========== MAP SECTION – YOU MUST REPLACE THE IFRAME BELOW ========== -->
+<!-- STEP 1: Open https://maps.app.goo.gl/pMmouUgsbZpwAbhc7 on your phone or computer -->
+<!-- STEP 2: Click Share → Embed a map → Copy the entire <iframe> code -->
+<!-- STEP 3: Paste it below, replacing the current <iframe> completely -->
 <div class="container mb-5">
    <h3 class="text-center" style="font-weight: 700;">📍 Find Us – Chilanga, Lusaka West (Mungwi Road)</h3>
-
-   <!-- Address as a clickable text input (style matches other fields exactly) -->
    <div class="row justify-content-center mt-3">
       <div class="col-md-8">
          <input type="text" class="email_text" id="shopAddress" value="J5FR+84F Chilanga, Lusaka West, Zambia" readonly style="background-color: #f8f9fa; cursor: pointer;" onclick="copyAddress()">
          <small class="form-text text-muted text-center">📍 Click the address above to copy it for navigation.</small>
       </div>
    </div>
-
-   <!-- 🔧 GOOGLE MAP EMBED – Uses the exact short link you provided: https://maps.app.goo.gl/pMmouUgsbZpwAbhc7
-        The src below was generated using the official Google Maps Embed API, pointing directly to S & T Barber Lounge and Accessories.
-        A red marker will appear exactly on your business location. -->
    <div class="map-container mt-4">
+      <!-- ⚠️ REPLACE THE ENTIRE IFRAME BELOW WITH YOUR OWN EMBED CODE FROM THE SHARE LINK ⚠️ -->
       <iframe
-         title="S&T Barber Lounge Location Map"
+         title="S&T Barber Lounge Map"
          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d240.0!2d28.287203!3d-15.574187!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940b3b850ca9d3d%3A0x33dd2a7fd675c9db!2sS%26T%20Barber%20Lounge%20and%20Accessories!5e0!3m2!1sen!2szm!4v1712314154730!5m2!1sen!2szm"
          width="100%"
          height="350"
          style="border:0; border-radius: 20px;"
          allowfullscreen=""
-         loading="lazy"
-         referrerpolicy="no-referrer-when-downgrade">
+         loading="lazy">
       </iframe>
    </div>
-   <p class="text-muted text-center mt-2">
-      Exact address: J5FR+84F Chilanga, Lusaka West – Look for our red and gold sign.
-   </p>
+   <p class="text-muted text-center mt-2">Exact address: J5FR+84F Chilanga, Lusaka West – Look for our red and gold sign.</p>
 </div>
 
-<!-- ========== FOOTER ========== -->
 <div class="footer_section layout_padding">
    <div class="container">
-      <div class="location_main text-center">
-         <p>📍 J5FR+84F Chilanga, Lusaka West | 📞 0573420800 | ✉️ stevenmvula243@gmail.com</p>
-      </div>
-      <div class="social_icon">
-         <ul>
-            <li><a href="https://web.facebook.com/profile.php?id=61589087050579" target="_blank"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook--v1.png" alt="Facebook"></a></li>
-            <li><a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new--v1.png" alt="Instagram"></a></li>
-            <li><a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok--v1.png" alt="TikTok"></a></li>
-            <li><a href="https://wa.me/0573420800"><img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png" alt="WhatsApp"></a></li>
-         </ul>
-      </div>
+      <div class="location_main text-center"><p>📍 J5FR+84F Chilanga, Lusaka West | 📞 0573420800 | ✉️ stevenmvula243@gmail.com</p></div>
+      <div class="social_icon"><ul><li><a href="https://web.facebook.com/profile.php?id=61589087050579" target="_blank"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook--v1.png"></a></li><li><a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new--v1.png"></a></li><li><a href="#"><img src="https://img.icons8.com/ios-filled/50/ffffff/tiktok--v1.png"></a></li><li><a href="https://wa.me/0573420800"><img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp--v1.png"></a></li></ul></div>
    </div>
 </div>
-<div class="copyright_section text-center py-3 bg-dark text-white">
-   <p class="mb-0">© 2025 S & T Barber Lounge & Accessories | <a href="https://web.facebook.com/profile.php?id=61589087050579" class="text-warning">Facebook Page</a></p>
-</div>
-
+<div class="copyright_section text-center py-3 bg-dark text-white"><p class="mb-0">© 2025 S & T Barber Lounge & Accessories | <a href="https://web.facebook.com/profile.php?id=61589087050579" class="text-warning">Facebook Page</a></p></div>
 <a href="https://wa.me/0573420800" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-<!-- ========== SCRIPTS ========== -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js"></script>
 <script>
-   // Initialize date and time pickers
    $('#datepicker').datepicker({ uiLibrary: 'bootstrap', format: 'yyyy-mm-dd' });
    $('#timepicker').timepicker({ uiLibrary: 'bootstrap', mode: '24hr' });
-
-   // ========== CUSTOM DROPDOWN LOGIC ==========
-   // This script controls the opening/closing and selection of our styleable dropdown.
    const dropdownWrapper = document.getElementById('serviceDropdown');
    const trigger = dropdownWrapper.querySelector('.custom-select-trigger');
    const optionsContainer = dropdownWrapper.querySelector('.custom-select-options');
    const selectedSpan = dropdownWrapper.querySelector('.selected-text');
    const hiddenInput = document.getElementById('serviceSelect');
-
-   // Toggle dropdown on trigger click
-   trigger.addEventListener('click', function(e) {
-      e.stopPropagation();
-      optionsContainer.classList.toggle('show');
-   });
-
-   // Close dropdown when clicking outside
-   document.addEventListener('click', function(e) {
-      if (!dropdownWrapper.contains(e.target)) {
-         optionsContainer.classList.remove('show');
-      }
-   });
-
-   // Handle option selection: update displayed text and hidden input value
-   const options = dropdownWrapper.querySelectorAll('.custom-option');
-   options.forEach(opt => {
+   trigger.addEventListener('click', function(e) { e.stopPropagation(); optionsContainer.classList.toggle('show'); });
+   document.addEventListener('click', function(e) { if (!dropdownWrapper.contains(e.target)) optionsContainer.classList.remove('show'); });
+   document.querySelectorAll('.custom-option').forEach(opt => {
       opt.addEventListener('click', function() {
-         const value = this.getAttribute('data-value');
-         selectedSpan.innerText = value;
-         hiddenInput.value = value;
-         // Update visual selection highlight
-         options.forEach(o => o.classList.remove('selected'));
+         selectedSpan.innerText = this.getAttribute('data-value');
+         hiddenInput.value = this.getAttribute('data-value');
+         document.querySelectorAll('.custom-option').forEach(o => o.classList.remove('selected'));
          this.classList.add('selected');
          optionsContainer.classList.remove('show');
       });
    });
-
-   // ========== WHATSAPP BOOKING HANDLER ==========
    document.getElementById('whatsappBookBtn').addEventListener('click', function(e){
       e.preventDefault();
       let name = document.getElementById('bookingName').value;
@@ -459,17 +220,12 @@
       let msg = `Hello S&T Barber Lounge (Chilanga). I'd like to book:%0A*Name:* ${name}%0A*WhatsApp:* ${phone}%0A*Date:* ${date}%0A*Time:* ${time}%0A*Service:* ${service}%0A*Special requests:* ${special}%0ALocation: J5FR+84F Chilanga.`;
       window.open(`https://wa.me/0573420800?text=${msg}`, '_blank');
    });
-
-   // Simple function to copy address from the text input
    function copyAddress() {
-      const addressInput = document.getElementById('shopAddress');
-      addressInput.select();
-      document.execCommand('copy');
-      const originalValue = addressInput.value;
-      addressInput.value = '✅ Address copied!';
-      setTimeout(() => {
-         addressInput.value = originalValue;
-      }, 1500);
+      const addr = document.getElementById('shopAddress');
+      addr.select(); document.execCommand('copy');
+      const orig = addr.value;
+      addr.value = '✅ Address copied!';
+      setTimeout(() => addr.value = orig, 1500);
    }
 </script>
 </body>
