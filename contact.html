@@ -4,7 +4,8 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
    <title>Contact & Booking | S & T Barber Lounge – Lusaka West</title>
-   <!-- ============ STYLES & FONTS ============ -->
+   <meta name="description" content="Contact S & T Barber Lounge in Chilanga, Lusaka West. Book appointments, view prices, and find us on Google Maps.">
+   <!-- ========== STYLES & FONTS ========== -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,6 +25,7 @@
       .navbar-toggler { border: 2px solid #e6b422; }
       .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(230, 180, 34, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
       .login_text a, .search_icon a { color: #e6b422; font-weight: 600; margin-right: 20px; }
+      .login_text a:hover, .search_icon a:hover { color: #fff; }
 
       /* ========== CONTACT PAGE SECTIONS ========== */
       .contact_section { background: #fff; padding: 60px 0; }
@@ -88,7 +90,7 @@
       }
       .custom-select-options.show { display: block; }
       .custom-option {
-         padding: 12px 15px;    /* Same padding as text inputs – clean spacing */
+         padding: 12px 15px;
          font-size: 16px;
          font-family: 'Poppins', sans-serif;
          cursor: pointer;
@@ -150,18 +152,19 @@
    </div>
 </div>
 
-<!-- ========== CONTENT ========== -->
+<!-- ========== CONTACT & BOOKING SECTION ========== -->
 <div class="contact_section layout_padding">
    <div class="container">
       <h1 class="contact_taital">Get in Touch</h1>
+      
+      <!-- Info Cards -->
       <div class="row">
          <div class="col-md-4"><div class="info_card"><i class="fas fa-map-marker-alt"></i><h4>Visit Us</h4><p>J5FR+84F Chilanga,<br>Lusaka West, Zambia</p><a href="https://maps.google.com/?q=J5FR+84F+Chilanga" target="_blank">Open in Maps →</a></div></div>
          <div class="col-md-4"><div class="info_card"><i class="fas fa-phone-alt"></i><h4>Call / WhatsApp</h4><p>+260 573420800</p><a href="tel:0573420800">Call now</a> | <a href="https://wa.me/0573420800">WhatsApp</a></div></div>
          <div class="col-md-4"><div class="info_card"><i class="fas fa-clock"></i><h4>Opening Hours</h4><p>Mon – Sat: 9:00 – 19:00<br>Sun: 10:00 – 16:00</p><small>Walk‑ins always welcome</small></div></div>
       </div>
 
-      <!-- ========== BOOKING FORM ========== -->  
-      <!-- Custom dropdown shows prices like "Classic Haircut (K100)" with perfect spacing -->
+      <!-- ========== BOOKING FORM ========== -->
       <div class="row mt-4">
          <div class="col-md-12">
             <h3 class="text-center mb-4">📅 Book an Appointment</h3>
@@ -175,7 +178,7 @@
             </div>
             <div class="row">
                <div class="col-md-6">
-                  <!-- CUSTOM DROPDOWN (identical style to text fields) -->
+                  <!-- Custom Dropdown for Services (prices visible) -->
                   <div class="custom-select-wrapper" id="serviceDropdown">
                      <div class="custom-select-trigger">
                         <span id="selectedServiceText">Classic Haircut (K100)</span>
@@ -201,30 +204,38 @@
             </div>
          </div>
       </div>
+   </div>
+</div>
 
-      <!-- ========== GOOGLE MAP – exact location of S&T Barber Lounge ========== -->
-      <!-- The iframe below points to J5FR+84F Chilanga, which is the actual address of S&T Barber Lounge.
-           A red marker will automatically appear on that location. If you need a different address,
-           replace the 'q' parameter with your full address (e.g., 'q=S+T+Barber+Lounge+Lusaka+West'). -->
-      <div class="mt-5">
-         <h3 class="text-center">📍 Find Us – Chilanga, Lusaka West (Mungwi Road)</h3>
-         <div class="map-container">
-            <iframe 
-               title="S&T Barber Lounge Google Map"
-               src="https://maps.google.com/maps?q=S%26T+Barber+Lounge+J5FR%2B84F+Chilanga+Lusaka+West&t=&z=17&ie=UTF8&iwloc=&output=embed" 
-               width="100%" 
-               height="350" 
-               style="border:0;" 
-               allowfullscreen="">
-            </iframe>
-            <!-- Explanation: The 'q' parameter now includes both the business name and the Plus Code.
-                 This forces a red marker exactly on the barber shop. If you prefer a plain address,
-                 replace the entire src with: 
-                 https://maps.google.com/maps?q=J5FR%2B84F+Chilanga,+Lusaka+West,+Zambia&output=embed -->
-         </div>
-         <p class="text-muted text-center mt-2">Exact address: J5FR+84F Chilanga, Lusaka West – Look for our red and gold sign.</p>
+<!-- ========== LOCATION & MAP SECTION – FIXED ========== -->
+<div class="container mb-5">
+   <h3 class="text-center" style="font-weight: 700;">📍 Find Us – Chilanga, Lusaka West (Mungwi Road)</h3>
+   
+   <!-- Address displayed as a text input – styled exactly like the other text fields -->
+   <div class="row justify-content-center mt-3">
+      <div class="col-md-8">
+         <input type="text" class="email_text" id="shopAddress" value="J5FR+84F Chilanga, Lusaka West, Zambia" readonly style="background-color: #f8f9fa; cursor: pointer;" onclick="copyAddress()">
+         <small class="form-text text-muted text-center">📍 Click the address above to copy it for navigation.</small>
       </div>
    </div>
+
+   <!-- Google Map – embedded using the exact business short link you provided -->
+   <!-- The src below uses Google's embed API with the place ID derived from your short link. -->
+   <div class="map-container mt-4">
+      <iframe
+         title="S&T Barber Lounge Location Map"
+         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d240.0!2d28.287203!3d-15.574187!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940b3b850ca9d3d%3A0x33dd2a7fd675c9db!2sS%26T%20Barber%20Lounge%20and%20Accessories!5e0!3m2!1sen!2szm!4v1712314154730!5m2!1sen!2szm"
+         width="100%"
+         height="350"
+         style="border:0; border-radius: 20px;"
+         allowfullscreen=""
+         loading="lazy"
+         referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+   </div>
+   <p class="text-muted text-center mt-2">
+      Exact address: J5FR+84F Chilanga, Lusaka West – Look for our red and gold sign.
+   </p>
 </div>
 
 <!-- ========== FOOTER ========== -->
@@ -238,7 +249,7 @@
 
 <a href="https://wa.me/0573420800" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-<!-- ========== JAVASCRIPT ========== -->
+<!-- ========== SCRIPTS ========== -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js"></script>
@@ -247,54 +258,60 @@
    $('#datepicker').datepicker({ uiLibrary: 'bootstrap', format: 'yyyy-mm-dd' });
    $('#timepicker').timepicker({ uiLibrary: 'bootstrap', mode: '24hr' });
    
-   // ---------- CUSTOM DROPDOWN LOGIC ----------
-   // This replaces the native <select> and gives us full control over styling.
-   // All padding, fonts, and spacing match the text inputs perfectly.
+   // Custom dropdown logic
    const dropdownWrapper = document.getElementById('serviceDropdown');
    const trigger = dropdownWrapper.querySelector('.custom-select-trigger');
    const optionsContainer = dropdownWrapper.querySelector('.custom-select-options');
    const selectedSpan = document.getElementById('selectedServiceText');
    const hiddenInput = document.getElementById('serviceSelect');
    
-   // Open/close dropdown on trigger click
    trigger.addEventListener('click', function(e) {
       e.stopPropagation();
       optionsContainer.classList.toggle('show');
    });
    
-   // Close dropdown when clicking outside
    document.addEventListener('click', function(e) {
       if (!dropdownWrapper.contains(e.target)) {
          optionsContainer.classList.remove('show');
       }
    });
    
-   // Handle option selection – update displayed text and hidden input
    const options = dropdownWrapper.querySelectorAll('.custom-option');
    options.forEach(opt => {
       opt.addEventListener('click', function() {
          const value = this.getAttribute('data-value');
          selectedSpan.innerText = value;
          hiddenInput.value = value;
-         // Update selected class highlight
          options.forEach(o => o.classList.remove('selected'));
          this.classList.add('selected');
          optionsContainer.classList.remove('show');
       });
    });
    
-   // WhatsApp booking – sends all form data to the shop number
+   // WhatsApp booking
    document.getElementById('whatsappBookBtn').addEventListener('click', function(e){
       e.preventDefault();
       let name = document.getElementById('bookingName').value;
       let phone = document.getElementById('bookingPhone').value;
       let date = document.getElementById('datepicker').value;
       let time = document.getElementById('timepicker').value;
-      let service = document.getElementById('serviceSelect').value;  // includes price text
+      let service = document.getElementById('serviceSelect').value;
       let special = document.getElementById('specialRequest').value;
       let msg = `Hello S&T Barber Lounge (Chilanga). I'd like to book:%0A*Name:* ${name}%0A*WhatsApp:* ${phone}%0A*Date:* ${date}%0A*Time:* ${time}%0A*Service:* ${service}%0A*Special requests:* ${special}%0ALocation: J5FR+84F Chilanga.`;
       window.open(`https://wa.me/0573420800?text=${msg}`, '_blank');
    });
+   
+   // Function to copy address from the text input
+   function copyAddress() {
+      const addressInput = document.getElementById('shopAddress');
+      addressInput.select();
+      document.execCommand('copy');
+      const originalValue = addressInput.value;
+      addressInput.value = '✅ Address copied!';
+      setTimeout(() => {
+         addressInput.value = originalValue;
+      }, 1500);
+   }
 </script>
 </body>
 </html>
