@@ -7,18 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0a0a0a;
             color: #ffffff;
             line-height: 1.6;
         }
-        /* Navbar (identical) */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -30,13 +25,8 @@
             top: 0;
             z-index: 1000;
         }
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-        }
-        .logo span {
-            color: #e6b422;
-        }
+        .logo { font-size: 1.8rem; font-weight: 800; }
+        .logo span { color: #e6b422; }
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -48,18 +38,14 @@
             text-decoration: none;
             color: white;
         }
-        .nav-links a:hover {
-            color: #e6b422;
-        }
+        .nav-links a:hover { color: #e6b422; }
         .hamburger {
             display: none;
             font-size: 1.8rem;
             cursor: pointer;
         }
         @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
+            .hamburger { display: block; }
             .nav-links {
                 position: fixed;
                 top: 70px;
@@ -75,14 +61,11 @@
                 transition: left 0.3s ease;
                 z-index: 999;
             }
-            .nav-links.active {
-                left: 0;
-            }
+            .nav-links.active { left: 0; }
         }
-        /* About Page Styles */
         .about-section {
             padding: 4rem 5%;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
         }
         .section-title {
@@ -90,9 +73,7 @@
             margin-bottom: 2rem;
             text-align: center;
         }
-        .section-title span {
-            color: #e6b422;
-        }
+        .section-title span { color: #e6b422; }
         .about-content {
             display: flex;
             flex-wrap: wrap;
@@ -100,27 +81,11 @@
             align-items: center;
             margin-bottom: 4rem;
         }
-        .about-text {
-            flex: 1;
-        }
-        .about-text p {
-            margin-bottom: 1rem;
-            color: #ccc;
-        }
-        .about-image {
-            flex: 1;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.3s;
-        }
-        .about-image:hover img {
-            transform: scale(1.02);
-        }
+        .about-text { flex: 1; }
+        .about-text p { margin-bottom: 1rem; color: #ccc; }
+        .about-image { flex: 1; border-radius: 20px; overflow: hidden; }
+        .about-image img { width: 100%; display: block; transition: transform 0.3s; }
+        .about-image:hover img { transform: scale(1.02); }
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -134,9 +99,7 @@
             text-align: center;
             transition: transform 0.3s;
         }
-        .team-card:hover {
-            transform: translateY(-5px);
-        }
+        .team-card:hover { transform: translateY(-5px); }
         .team-card img {
             width: 120px;
             height: 120px;
@@ -145,12 +108,40 @@
             border: 3px solid #e6b422;
             margin-bottom: 1rem;
         }
-        .team-card h3 {
-            margin-bottom: 0.5rem;
+        .team-card h3 { margin-bottom: 0.5rem; }
+        .team-card p { color: #e6b422; font-weight: 500; }
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #333;
         }
-        .team-card p {
+        iframe {
+            width: 100%;
+            height: 350px;
+            border: 0;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .contact-info a {
             color: #e6b422;
-            font-weight: 500;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover { color: #ffffff; }
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #050505;
+            margin-top: 3rem;
         }
         .btn-whatsapp {
             position: fixed;
@@ -165,27 +156,18 @@
             justify-content: center;
             font-size: 2rem;
             color: white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             transition: transform 0.3s;
             text-decoration: none;
         }
-        .btn-whatsapp:hover {
-            transform: scale(1.1);
-        }
-        .footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: #050505;
-            margin-top: 3rem;
-        }
+        .btn-whatsapp:hover { transform: scale(1.1); }
         @media (max-width: 768px) {
             .section-title { font-size: 2rem; }
             .about-content { flex-direction: column; }
+            .contact-info { flex-direction: column; align-items: center; gap: 1rem; }
         }
     </style>
 </head>
 <body>
-
     <nav class="navbar">
         <div class="logo">S & T <span>Barber Lounge</span></div>
         <ul class="nav-links">
@@ -203,8 +185,8 @@
         <div class="about-content">
             <div class="about-text">
                 <p>Welcome to <strong>S & T Barber Lounge & Accessories</strong> – your premier destination for premium grooming in Chilanga, Lusaka West. We blend traditional barbering techniques with modern trends to give every client a fresh, confident look.</p>
-                <p>Our lounge is more than just a haircut – it's an experience. We offer a full range of services: skin fades, beard sculpting, hot towel shaves, and kids' cuts. We also stock authentic grooming accessories (oils, pomades, clippers, and more) so you can maintain your style at home.</p>
-                <p>Founded with a passion for excellence, our team of skilled barbers ensures every visit leaves you looking and feeling your best. Walk-ins are always welcome, but we recommend booking via WhatsApp for priority service.</p>
+                <p>Our lounge is more than just a haircut – it's an experience. We offer skin fades, beard sculpting, hot towel shaves, kids' cuts, and a full range of authentic grooming accessories (oils, pomades, clippers, and more).</p>
+                <p>Founded with a passion for excellence, our skilled barbers ensure every visit leaves you looking and feeling your best. Walk-ins are always welcome, but we recommend booking via WhatsApp for priority service.</p>
             </div>
             <div class="about-image">
                 <img src="https://images.pexels.com/photos/3993467/pexels-photo-3993467.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Barbers at work">
@@ -213,81 +195,36 @@
 
         <h2 class="section-title">Meet Our <span>Barbers</span></h2>
         <div class="team-grid">
-            <div class="team-card">
-                <img src="https://images.pexels.com/photos/3812900/pexels-photo-3812900.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Barber Steven">
-                <h3>Steven M.</h3>
-                <p>Master Barber</p>
-                <p>10+ years experience. Specialty: skin fades, razor line-ups.</p>
-            </div>
-            <div class="team-card">
-                <img src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Barber Thabo">
-                <h3>Thabo K.</h3>
-                <p>Beard Specialist</p>
-                <p>Hot towel shaves, beard sculpting, and shaping.</p>
-            </div>
-            <div class="team-card">
-                <img src="https://images.pexels.com/photos/3997822/pexels-photo-3997822.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Barber James">
-                <h3>James C.</h3>
-                <p>Creative Designer</p>
-                <p>Custom designs, kids cuts, and modern fades.</p>
-            </div>
+            <div class="team-card"><img src="https://images.pexels.com/photos/3812900/pexels-photo-3812900.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Steven"><h3>Steven M.</h3><p>Master Barber</p><p>10+ years – skin fades, razor line-ups.</p></div>
+            <div class="team-card"><img src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Thabo"><h3>Thabo K.</h3><p>Beard Specialist</p><p>Hot towel shaves, beard sculpting.</p></div>
+            <div class="team-card"><img src="https://images.pexels.com/photos/3997822/pexels-photo-3997822.jpeg?auto=compress&cs=tinysrgb&w=400" alt="James"><h3>James C.</h3><p>Creative Designer</p><p>Custom designs, kids cuts, modern fades.</p></div>
         </div>
     </div>
 
-    <a href="https://wa.me/260973420800" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
-
-  
-
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
-    </script>
-    
-     
-    <h2 class="section-title">Our <span>Location</span></h2>
+    <!-- Map -->
+    <div style="padding: 0 5%; margin-top: 2rem;">
+        <h2 class="section-title">Our <span>Location</span></h2>
         <div class="map-container">
-            <!-- ⚠️ REPLACE THE IFRAME BELOW WITH YOUR OWN EMBED CODE FROM GOOGLE MAPS ⚠️ -->
-            <!-- 1. Open your link: https://maps.app.goo.gl/pMmouUgsbZpwAbhc7 -->
-            <!-- 2. Click Share → Embed a map → Copy the entire iframe code -->
-            <!-- 3. Paste it here, replacing this entire <iframe> block -->
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.9963499905625!2d28.187715073908535!3d-15.376684012805882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f700591f28a3%3A0x664f1354ae51eec5!2sS%20%26%20T%20Baber%20Lounge%20and%20Accessories!5e0!3m2!1sen!2szm!4v1778323821569!5m2!1sen!2szm" width="1400" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.9963499905625!2d28.187715073908535!3d-15.376684012805882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f700591f28a3%3A0x664f1354ae51eec5!2sS%20%26%20T%20Baber%20Lounge%20and%20Accessories!5e0!3m2!1sen!2szm!4v1778323821569!5m2!1sen!2szm" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
         <p style="text-align: center; margin-top: 1rem; color: #ccc;">📍 S & T Barber Lounge and Accessories – J5FR+84F Chilanga, Lusaka West</p>
     </div>
 
-    <!-- Social media and email section (Facebook + Gmail) -->
     <div class="contact-info">
         <a href="https://www.facebook.com/profile.php?id=61589087050579" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
         <a href="mailto:stevenmvula243@gmail.com"><i class="fas fa-envelope"></i> stevenmvula243@gmail.com</a>
     </div>
 
-    <a href="https://wa.me/260573420800" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <div class="footer">
+        <p>&copy; 2025 S & T Barber Lounge & Accessories. All rights reserved.</p>
+    </div>
 
-    
+    <a href="https://wa.me/260573420800" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <script>
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
         hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
-
-        const form = document.getElementById('contactForm');
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = form.querySelector('input[name="name"]').value;
-            const phone = form.querySelector('input[name="phone"]').value;
-            const date = form.querySelector('input[name="date"]').value;
-            const time = form.querySelector('input[name="time"]').value;
-            const service = form.querySelector('select[name="service"]').value;
-            const requests = form.querySelector('textarea[name="requests"]').value;
-            const msg = `Hello S&T Barber Lounge, I'd like to book an appointment.%0A%0AName: ${name}%0APhone: ${phone}%0ADate: ${date}%0ATime: ${time}%0AService: ${service}%0ASpecial requests: ${requests}`;
-            // WhatsApp number changed to 0573420800 (Zambia format: +260 573420800)
-            window.open(`https://wa.me/260573420800?text=${msg}`, '_blank');
-        });
     </script>
-     <div class="footer">
-        <p>&copy; 2025 S & T Barber Lounge & Accessories. All rights reserved.</p>
-    </div>
 </body>
 </html>
