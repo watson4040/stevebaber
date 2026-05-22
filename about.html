@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>About Us | S & T Barber Lounge & Accessories</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -18,14 +18,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
+            padding: 1rem 5%;
             background-color: #0a0a0a;
             border-bottom: 1px solid #222;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
-        .logo { font-size: 1.8rem; font-weight: 800; }
+        .logo { font-size: 1.6rem; font-weight: 800; }
         .logo span { color: #e6b422; }
         .nav-links {
             display: flex;
@@ -34,16 +34,24 @@
         }
         .nav-links a {
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             text-decoration: none;
             color: white;
+            padding: 0.5rem 0;
         }
-        .nav-links a:hover { color: #e6b422; }
+        .nav-links a:hover {
+            color: #e6b422;
+            transform: translateY(-2px);
+            text-shadow: 0 0 4px rgba(230,180,34,0.5);
+        }
         .hamburger {
             display: none;
             font-size: 1.8rem;
             cursor: pointer;
+            color: #e6b422;
+            transition: transform 0.2s;
         }
+        .hamburger:hover { transform: scale(1.05); }
         @media (max-width: 768px) {
             .hamburger { display: block; }
             .nav-links {
@@ -58,7 +66,7 @@
                 justify-content: flex-start;
                 padding-top: 3rem;
                 gap: 2rem;
-                transition: left 0.3s ease;
+                transition: left 0.3s ease-in-out;
                 z-index: 999;
             }
             .nav-links.active { left: 0; }
@@ -126,17 +134,25 @@
             justify-content: center;
             gap: 2rem;
             margin: 2rem 0;
+            flex-wrap: wrap;
         }
         .contact-info a {
             color: #e6b422;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            background: rgba(230,180,34,0.1);
         }
-        .contact-info a:hover { color: #ffffff; }
+        .contact-info a:hover {
+            color: #ffffff;
+            background: #e6b422;
+            transform: translateY(-2px);
+        }
         .footer {
             text-align: center;
             padding: 2rem;
@@ -185,23 +201,22 @@
         <div class="about-content">
             <div class="about-text">
                 <p>Welcome to <strong>S & T Barber Lounge & Accessories</strong> – your premier destination for premium grooming in Chilanga, Lusaka West. We blend traditional barbering techniques with modern trends to give every client a fresh, confident look.</p>
-                <p>Our lounge is more than just a haircut – it's an experience. We offer skin fades, beard sculpting, hot towel shaves, kids' cuts, and a full range of authentic grooming accessories (oils, pomades, clippers, and more).</p>
+                <p>Our lounge is more than just a haircut – it's an experience. We offer skin fades, beard sculpting, hot towel shaves, kids' cuts, and a full range of authentic grooming accessories (Phones, Headsets, , and more).</p>
                 <p>Founded with a passion for excellence, our skilled barbers ensure every visit leaves you looking and feeling your best. Walk-ins are always welcome, but we recommend booking via WhatsApp for priority service.</p>
             </div>
             <div class="about-image">
-                <img src="https://images.pexels.com/photos/3993467/pexels-photo-3993467.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Barbers at work">
+                <img src="images/chito.jpg?auto=compress&cs=tinysrgb&w=800" alt="Barbers at work">
             </div>
         </div>
 
         <h2 class="section-title">Meet Our <span>Barbers</span></h2>
         <div class="team-grid">
-            <div class="team-card"><img src="https://images.pexels.com/photos/3812900/pexels-photo-3812900.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Steven"><h3>Steven M.</h3><p>Master Barber</p><p>10+ years – skin fades, razor line-ups.</p></div>
-            <div class="team-card"><img src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Thabo"><h3>Thabo K.</h3><p>Beard Specialist</p><p>Hot towel shaves, beard sculpting.</p></div>
-            <div class="team-card"><img src="https://images.pexels.com/photos/3997822/pexels-photo-3997822.jpeg?auto=compress&cs=tinysrgb&w=400" alt="James"><h3>James C.</h3><p>Creative Designer</p><p>Custom designs, kids cuts, modern fades.</p></div>
+            <div class="team-card"><img src="images/stev.jpg?auto=compress&cs=tinysrgb&w=400" alt="Steven"><h3>Steven M.</h3><p>Master Barber</p><p>10+ years – skin fades, razor line-ups.</p></div>
+            <div class="team-card"><img src="images/ste.jpg?auto=compress&cs=tinysrgb&w=400" alt="Thabo"><h3>Stephen Park.</h3><p>Beard Specialist</p><p>Hot towel shaves, beard sculpting.</p></div>
+            <div class="team-card"><img src="images/b8.jpg?auto=compress&cs=tinysrgb&w=400" alt="James"><h3>T Man.</h3><p>Creative Designer</p><p>Custom designs, kids cuts, modern fades.</p></div>
         </div>
     </div>
 
-    <!-- Map -->
     <div style="padding: 0 5%; margin-top: 2rem;">
         <h2 class="section-title">Our <span>Location</span></h2>
         <div class="map-container">
@@ -223,8 +238,13 @@
 
     <script>
         const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+        const navMenu = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) navMenu.classList.remove('active');
+            });
+        });
     </script>
 </body>
 </html>
