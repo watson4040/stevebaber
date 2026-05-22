@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>S & T Barber Lounge & Accessories | Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -15,18 +15,20 @@
             line-height: 1.6;
         }
         a { text-decoration: none; color: inherit; }
+
+        /* ===== NAVBAR (mobile‑friendly + auto‑close) ===== */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
+            padding: 1rem 5%;
             background-color: #0a0a0a;
             border-bottom: 1px solid #222;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
-        .logo { font-size: 1.8rem; font-weight: 800; }
+        .logo { font-size: 1.6rem; font-weight: 800; }
         .logo span { color: #e6b422; }
         .nav-links {
             display: flex;
@@ -35,16 +37,25 @@
         }
         .nav-links a {
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             text-decoration: none;
             color: white;
+            padding: 0.5rem 0;
         }
-        .nav-links a:hover { color: #e6b422; }
+        .nav-links a:hover {
+            color: #e6b422;
+            transform: translateY(-2px);
+            text-shadow: 0 0 4px rgba(230,180,34,0.5);
+        }
         .hamburger {
             display: none;
             font-size: 1.8rem;
             cursor: pointer;
+            color: #e6b422;
+            transition: transform 0.2s;
         }
+        .hamburger:hover { transform: scale(1.05); }
+
         @media (max-width: 768px) {
             .hamburger { display: block; }
             .nav-links {
@@ -59,22 +70,58 @@
                 justify-content: flex-start;
                 padding-top: 3rem;
                 gap: 2rem;
-                transition: left 0.3s ease;
+                transition: left 0.3s ease-in-out;
                 z-index: 999;
             }
             .nav-links.active { left: 0; }
         }
-        .hero {
-            min-height: 90vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        /* ===== HERO CAROUSEL (auto slide every 2 seconds) ===== */
+        .hero-carousel {
+            position: relative;
+            width: 100%;
+            height: 90vh;
+            overflow: hidden;
+        }
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 1;
+        }
+        .carousel-slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+        .carousel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.65);
+            z-index: 3;
+        }
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
-            padding: 2rem;
+            color: white;
+            z-index: 4;
+            width: 90%;
+            max-width: 700px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
         }
         .hero-content h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 1rem;
         }
@@ -82,8 +129,7 @@
         .hero-content p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
-            max-width: 600px;
-            color: #ccc;
+            color: #eee;
         }
         .btn {
             display: inline-block;
@@ -94,47 +140,17 @@
             border-radius: 40px;
             transition: all 0.3s ease;
             cursor: pointer;
+            border: none;
         }
         .btn:hover {
             background-color: #ffffff;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+            color: #0a0a0a;
         }
-        .services-preview, .gallery-preview, .testimonials {
-            padding: 5rem 5%;
-            text-align: center;
-        }
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            font-weight: 700;
-        }
-        .section-title span { color: #e6b422; }
-        .service-cards, .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .card {
-            background-color: #1a1a1a;
-            padding: 2rem;
-            border-radius: 12px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-        }
-        .card i {
-            font-size: 2.5rem;
-            color: #e6b422;
-            margin-bottom: 1rem;
-        }
-        .card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
         .btn-outline {
             background-color: transparent;
-            border: 1px solid #e6b422;
+            border: 2px solid #e6b422;
             color: #e6b422;
             margin-top: 1rem;
             display: inline-block;
@@ -142,12 +158,58 @@
         .btn-outline:hover {
             background-color: #e6b422;
             color: #0a0a0a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(230,180,34,0.3);
         }
+
+        .services-preview, .gallery-preview {
+            padding: 4rem 5%;
+            text-align: center;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+        .section-title span { color: #e6b422; }
+        .service-cards, .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .card {
+            background-color: #1a1a1a;
+            padding: 2rem;
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.4);
+            border: 1px solid #e6b422;
+        }
+        .card i {
+            font-size: 2.5rem;
+            color: #e6b422;
+            margin-bottom: 1rem;
+        }
+        .card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+        .gallery-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 16px;
+            transition: transform 0.3s;
+        }
+        .gallery-card img:hover { transform: scale(1.02); }
+
         .map-container {
             margin-top: 2rem;
             border-radius: 20px;
             overflow: hidden;
-            border: 1px solid #333;
+            border: 2px solid #222;
         }
         iframe {
             width: 100%;
@@ -159,17 +221,25 @@
             justify-content: center;
             gap: 2rem;
             margin: 2rem 0;
+            flex-wrap: wrap;
         }
         .contact-info a {
             color: #e6b422;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            background: rgba(230,180,34,0.1);
         }
-        .contact-info a:hover { color: #ffffff; }
+        .contact-info a:hover {
+            color: #ffffff;
+            background: #e6b422;
+            transform: translateY(-2px);
+        }
         .footer {
             text-align: center;
             padding: 2rem;
@@ -189,82 +259,158 @@
             justify-content: center;
             font-size: 2rem;
             color: white;
-            transition: transform 0.3s;
+            transition: all 0.3s;
             text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 999;
         }
-        .btn-whatsapp:hover { transform: scale(1.1); }
+        .btn-whatsapp:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            .section-title { font-size: 2rem; }
-            .contact-info { flex-direction: column; align-items: center; gap: 1rem; }
+            .hero-carousel { height: 70vh; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .section-title { font-size: 1.8rem; }
+            .contact-info { flex-direction: column; align-items: center; gap: 0.8rem; }
+            .card { padding: 1.5rem; }
+            .gallery-card img { height: 180px; }
+        }
+        @media (max-width: 480px) {
+            .hero-content h1 { font-size: 1.8rem; }
+            .btn { padding: 8px 20px; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">S & T <span>Barber Lounge</span></div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="hamburger"><i class="fas fa-bars"></i></div>
-    </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>S & T <span>Barber Lounge</span><br> & Accessories</h1>
-            <p>Experience the finest fades, beard trims, and grooming accessories in Lusaka West.</p>
-            <a href="contact.html" class="btn">Book Your Appointment</a>
-        </div>
-    </section>
+<nav class="navbar">
+    <div class="logo">S & T <span>Barber Lounge</span></div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="hamburger"><i class="fas fa-bars"></i></div>
+</nav>
 
-    <section class="services-preview">
-        <h2 class="section-title">Our <span>Signature Services</span></h2>
-        <div class="service-cards">
-            <div class="card"><i class="fas fa-cut"></i><h3>Skin Fades</h3><p>Precision fades tailored to your style.</p></div>
-            <div class="card"><i class="fas fa-beard"></i><h3>Beard Sculpting</h3><p>Expert shaping and hot towel shaves.</p></div>
-            <div class="card"><i class="fas fa-store"></i><h3>Premium Accessories</h3><p>Top-quality grooming products.</p></div>
-        </div>
-    </section>
-
-    <section class="gallery-preview" style="background-color: #111;">
-        <h2 class="section-title">Our <span>Gallery</span></h2>
-        <div class="gallery-grid">
-            <div class="card"><img src="https://images.pexels.com/photos/3997822/pexels-photo-3997822.jpeg?auto=compress&cs=tinysrgb&w=600" style="width:100%; border-radius:8px;" alt="Fade Cut"></div>
-            <div class="card"><img src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=600" style="width:100%; border-radius:8px;" alt="Beard Trim"></div>
-            <div class="card"><img src="https://images.pexels.com/photos/3993463/pexels-photo-3993463.jpeg?auto=compress&cs=tinysrgb&w=600" style="width:100%; border-radius:8px;" alt="Hot Towel"></div>
-        </div>
-        <a href="gallery.html" class="btn btn-outline" style="margin-top: 2rem;">View Full Gallery</a>
-    </section>
-
-    <!-- Location Map (same style as contact page) -->
-    <div style="padding: 0 5%; margin-top: 2rem;">
-        <h2 class="section-title">Our <span>Location</span></h2>
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.9963499905625!2d28.187715073908535!3d-15.376684012805882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f700591f28a3%3A0x664f1354ae51eec5!2sS%20%26%20T%20Baber%20Lounge%20and%20Accessories!5e0!3m2!1sen!2szm!4v1778323821569!5m2!1sen!2szm" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <p style="text-align: center; margin-top: 1rem; color: #ccc;">📍 S & T Barber Lounge and Accessories – J5FR+84F Chilanga, Lusaka West</p>
+<!-- ========== AUTO SLIDING CAROUSEL (every 2 seconds) ========== -->
+<!-- TO REPLACE ANY CAROUSEL IMAGE: change the URL inside url('...') below -->
+<div class="hero-carousel">
+    <!-- SLIDE 1 - Men's skin fade haircut -->
+    <div class="carousel-slide active" style="background-image: url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=1600&h=900&fit=crop');"></div>
+    <!-- SLIDE 2 - Barber trimming a man's beard -->
+    <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1600&h=900&fit=crop');"></div>
+    <!-- SLIDE 3 - Modern men's pompadour haircut -->
+    <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1600&h=900&fit=crop');"></div>
+    <!-- SLIDE 4 - Fresh men's haircut close-up -->
+    <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=1600&h=900&fit=crop');"></div>
+    <!-- SLIDE 5 - Another male client getting a trim -->
+    <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1562006760-bce8b7b5d75e?w=1600&h=900&fit=crop');"></div>
+    <div class="carousel-overlay"></div>
+    <div class="hero-content">
+        <h1>S & T <span>Barber Lounge</span><br> & Accessories</h1>
+        <p>Experience the finest fades, beard trims, and grooming accessories in Lusaka West.</p>
+        <a href="contact.html" class="btn">Book Your Appointment</a>
     </div>
+</div>
 
-    <!-- Social & Email (same as contact page) -->
-    <div class="contact-info">
-        <a href="https://www.facebook.com/profile.php?id=61589087050579" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
-        <a href="mailto:stevenmvula243@gmail.com"><i class="fas fa-envelope"></i> stevenmvula243@gmail.com</a>
+<!-- Services Section -->
+<section class="services-preview">
+    <h2 class="section-title">Our <span>Signature Services</span></h2>
+    <div class="service-cards">
+        <div class="card"><i class="fas fa-cut"></i><h3>Skin Fades</h3><p>Precision fades tailored to your style.</p></div>
+        <div class="card"><i class="fas fa-beard"></i><h3>Beard Sculpting</h3><p>Expert shaping and hot towel shaves.</p></div>
+        <div class="card"><i class="fas fa-store"></i><h3>Premium Accessories</h3><p>Top-quality grooming products.</p></div>
     </div>
+</section>
 
-    <div class="footer">
-        <p>&copy; 2025 S & T Barber Lounge & Accessories. All rights reserved.</p>
+<!-- Gallery Preview Section (static images – replace URLs below) -->
+<section class="gallery-preview" style="background-color: #111;">
+    <h2 class="section-title">Our <span>Gallery</span></h2>
+    <div class="gallery-grid">
+        <!-- GALLERY IMAGE 1 – replace src with your own image -->
+        <div class="card gallery-card">
+            <img src="images/b6.jpg?auto=compress&cs=tinysrgb&w=600" alt="Skin fade haircut">
+        </div>
+        <!-- GALLERY IMAGE 2 – replace src with your own image -->
+        <div class="card gallery-card">
+            <img src="images/b4.jpg?auto=compress&cs=tinysrgb&w=600" alt="Beard trim">
+        </div>
+        <!-- GALLERY IMAGE 3 – replace src with your own image -->
+        <div class="card gallery-card">
+            <img src="images/chito.jpg?auto=compress&cs=tinysrgb&w=600" alt="Hot towel treatment">
+        </div>
     </div>
+    <a href="gallery.html" class="btn btn-outline" style="margin-top: 2rem;">View Full Gallery</a>
+</section>
 
-    <a href="https://wa.me/260573420800" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<!-- Location Map -->
+<div style="padding: 0 5%; margin-top: 2rem;">
+    <h2 class="section-title">Our <span>Location</span></h2>
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.9963499905625!2d28.187715073908535!3d-15.376684012805882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f700591f28a3%3A0x664f1354ae51eec5!2sS%20%26%20T%20Baber%20Lounge%20and%20Accessories!5e0!3m2!1sen!2szm!4v1778323821569!5m2!1sen!2szm" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <p style="text-align: center; margin-top: 1rem; color: #ccc;">📍 S & T Barber Lounge and Accessories – J5FR+84F Chilanga, Lusaka West</p>
+</div>
 
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
-    </script>
+<!-- Social & Email -->
+<div class="contact-info">
+    <a href="https://www.facebook.com/profile.php?id=61589087050579" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+    <a href="mailto:stevenmvula243@gmail.com"><i class="fas fa-envelope"></i> stevenmvula243@gmail.com</a>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2025 S & T Barber Lounge & Accessories. All rights reserved.</p>
+</footer>
+
+<a href="https://wa.me/260573420800" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+    // ===== AUTO CAROUSEL (2 seconds interval) =====
+    const slides = document.querySelectorAll('.carousel-slide');
+    let currentIndex = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }
+
+    function startCarousel() {
+        if (slideInterval) clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 2000);
+    }
+
+    startCarousel();
+    // pause on hover for better user experience
+    const carousel = document.querySelector('.hero-carousel');
+    carousel.addEventListener('mouseenter', () => clearInterval(slideInterval));
+    carousel.addEventListener('mouseleave', startCarousel);
+
+    // ===== MOBILE MENU TOGGLE + AUTO CLOSE ON LINK CLICK =====
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+    });
+</script>
 </body>
 </html>
